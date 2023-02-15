@@ -1,0 +1,36 @@
+
+.theme-light
+{
+  --color-primary: #000 ;
+  --bgcolor-primary: #ffffff ;
+
+  --color-second: #111 ;
+  --bgcolor-second: #eee ;
+}
+
+.theme-dark
+{
+  --color-primary: #eee ;
+  --bgcolor-primary: #000 ;
+
+  --color-second: #ddd ;
+  --bgcolor-second: #222 ;
+}
+
+
+
+
+
+
+body
+{
+  font-size: 2rem ;
+  color: var(--color-primary) ;
+  background-color: var(--bgcolor-primary) ;
+  text-align: center ;
+}
+
+.button
+{
+  font-size: 2rem ;
+}

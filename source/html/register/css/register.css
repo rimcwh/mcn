@@ -1,0 +1,55 @@
+
+.theme-light
+{
+  --color-primary: #000 ;
+  --bgcolor-primary: #ffffff ;
+
+  --color-second: #111 ;
+  --bgcolor-second: #eee ;
+}
+
+.theme-dark
+{
+  --color-primary: #eee ;
+  --bgcolor-primary: #000 ;
+
+  --color-second: #ddd ;
+  --bgcolor-second: #222 ;
+}
+
+
+
+
+
+body, button, input
+{
+  font-size: 2rem ;
+}
+
+body
+{
+  color: var(--color-primary) ;
+  background-color: var(--bgcolor-primary) ;
+  text-align: center ;
+}
+
+input
+{
+  color: var(--color-second) ;
+  background-color: var(--bgcolor-second) ;
+}
+
+#img-captcha
+{
+  margin-top: 10px ;
+  width: 200px ;
+  height: 50px ;
+}
+
+#button-changing-captcha
+{
+  vertical-align: top ;
+  margin-top: 10px ;
+  margin-left: 10px ;
+}
+

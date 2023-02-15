@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>register - mcn site</title>
+    <link rel = "stylesheet" href = "css/register.css">
+    <script src = "js/register.js"></script>
+  </head>
+  <body>
+    <h1>註冊</h1>
+    <br />
+    帳號 <input type = "text" id = "account_id" name = "account_id" maxlength = "50" onfocus = "focus_account_id()" onfocusout = "focusout_account_id()"><br />
+    <br />
+    <button type = "button" onclick = "clicked_checking_account_id()">檢查帳號</button><br />
+    <br />
+    <div id = "div-check-account">　</div>
+    <br />
+    密碼 <input type = "password" id = "password" name = "passsword" maxlength = "50"><br />
+    <br />
+    驗證碼 <input type = "text" id = "input-captcha" name = "captcha"><br />
+    <img id = "img-captcha" src = ""><button type = "button" id = "button-changing-captcha" onclick = "clicked_changing_captcha()">更換驗證碼</button><br />
+    <br />
+    <button type = "button" onclick = "clicked_register()">註冊</button>
+    <br />
+    <p id = "result"></p>
+  </body>
+</html>

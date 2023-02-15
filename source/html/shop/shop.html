@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>shop - mcn site</title>
+    <link rel = "stylesheet" href = "css/shop.css">
+    <script src = "js/shop.js"></script>
+    <script src = "js/shop_basic_info.js"></script>
+    <script src = "js/shop_books_list.js"></script>
+    <script src = "js/shop_my_shop.js"></script>
+    <script src = "js/shop_shopping_cart.js"></script>
+    <script src = "js/shop_my_order.js"></script>
+  </head>
+  <body>
+    <div class = "wrap">
+      <div class = "menu-list">
+        <h1 class = "h1-title">書店</h1>
+        <button id = "shop-page-button-books-list" class = "button-selected" onclick = "clicked_books_list()">書籍瀏覽</button>
+        <button id = "shop-page-button-basic-info" class = "button-not-selected" onclick = "clicked_basic_info()">基本資料</button>
+        <button id = "shop-page-button-my-shop" class = "button-not-selected" onclick = "clicked_my_shop_page()">我的書店</button>
+        <button id = "shop-page-button-shopping-cart" class = "button-not-selected" onclick = "clicked_shopping_cart_page()">購物車</button>
+        <button id = "shop-page-button-my-order" class = "button-not-selected" onclick = "clicked_my_order()">我的訂單</button>
+        <br />
+        <br />
+        <button class = "button-back" onclick = "nav_lobby() ;">返回大廳</button>
+      </div>
+      <div id = "main-frame">
+        <div id = "div-books-list">
+        </div>
+        <div id = "div-book-detail-overlay">
+          <div id = "display-book-detail">
+            <button id = "shop-page-button-book-detail-close" onclick = "clicked_book_detail_close()">關閉</button><br />
+            <div id = "div-book-detail-info">
+              <img id = "div-book-detail-cover-image" src = "" />
+              <div id = "div-book-detail-wrap-A">
+                <div id = "div-book-detail-title"></div>
+                <br />
+                <div id = "div-book-detail-author"></div>
+                <br />
+                <div id = "div-book-detail-publication-date"></div>
+                <br />
+                <div id = "div-book-detail-isbn"></div>
+                <br />
+                <div id = "div-book-detail-price">價錢：<span class = "book-detail-price-number-part"></span> 元</div>
+                <br />
+                <div id = "div-book-detail-provider-name"></div>
+              </div>
+            </div>
+            <br />
+            數量：<button id = "shop-page-button-book-detail-number-minus" onclick = "clicked_book_detail_number_minus()">-</button>
+            <span id = "shop-page-book-detail-number">0</span>
+            <button id = "shop-page-button-book-detail-number-plus" onclick = "clicked_book_detail_number_plus()">+</button>
+            <span id = "div-book-detail-sum">小計：0 元</span><br />
+            <br />
+            <button id = "shop-page-button-book-detail-putting-in-shopping-cart" onclick = "clicked_book_detail_putting_in_shopping_cart()">放入購物車</button>
+            <br />
+            <br />
+            內容簡介：<br />
+            <div id = "div-book-detail-introduction"></div>
+          </div>
+        </div>
+
+        <div id = "div-basic-info">
+          姓名：<input type = "text" id = "input-basic-info-name"><br />
+          <br />
+          電話：<input type = "text" id = "input-basic-info-tel"><br />
+          <br />
+          地址：<input type = "text" id = "input-basic-info-address"><br />
+          <br />
+          <input type = "checkbox" id = "checkbox-send-mail"><label id = "label-send-mail" for = "checkbox-send-mail">產生訂單時，發送 E-mail 通知 ( E-mail 需要驗證過 )</label><br />
+          <br />
+          <button id = "shop-page-button-basic-info-updating" onclick = "clicked_basic_info_updating ()">更新</button>
+          <div id = "div-basic-info-result">
+          </div>
+        </div>
+
+        <div id = "div-my-shop">
+          <button id = "shop-page-button-checking-orders" class = "button-selected" onclick = "clicked_my_shop_checking_orders()">查看訂單</button>
+          
+          <button id = "shop-page-button-new-book" class = "button-not-selected" onclick = "clicked_my_shop_new_book()">上架新書</button>
+          
+          <button id = "shop-page-button-launched-books" class = "button-not-selected" onclick = "clicked_my_shop_launched_books()">已上架</button>
+          
+          <div id = "div-my-shop-checking-orders">
+            <div id = "div-my-shop-checking-orders-display-orders">
+              <table class = "table-my-shop-orders-list-header">
+                <tr>
+                  <td class = "td-my-shop-orders-list-header-order-id">訂單編號</td>
+                  <td class = "td-my-shop-orders-list-header-order-date">訂單日期</td>
+                  <td class = "td-my-shop-orders-list-header-name">姓名</td>
+                  <td class = "td-my-shop-orders-list-header-tel">電話</td>
+                  <td class = "td-my-shop-orders-list-header-address">地址</td>
+                  <td class = "td-my-shop-orders-list-header-book_id">書籍編號</td>
+                  <td class = "td-my-shop-orders-list-header-book-isbn">ISBN</td>
+                  <td class = "td-my-shop-orders-list-header-book-title">書名</td>
+                  <td class = "td-my-shop-orders-list-header-price">單價</td>
+                  <td class = "td-my-shop-orders-list-header-number">數量</td>
+                  <td class = "td-my-shop-orders-list-header-sum">小計</td>
+                </tr>
+              </table>
+              <ul id = "ul-my-shop-orders-list-item-list"></ul>
+            </div>
+            <br />
+            <button id = "shop-page-button-orders-list-generating-pdf" onclick = "clicked_my_shop_orders_list_generating_pdf()">產生 PDF</button>
+          </div>
+          
+          <div id = "div-my-shop-new-book">
+            <div id = "div-my-shop-new-book-attr-A">
+              書名：<input type = "text" id = "input-new-book-title" name = "new-book-title"><br />
+              <br />
+              出版日期：<input type = "text" id = "input-new-book-publication-date" name = "new-book-publication-date"><br />
+              （yyyy-mm-dd）
+              <br />
+              <br />
+              價格：<input type = "text" id = "input-new-book-price" name = "new-book-price"><br />
+            </div>
+            <div id = "div-my-shop-new-book-attr-B">
+              作者：<input type = "text" id = "input-new-book-author" name = "new-book-author"><br />
+              <br />
+              ISBN：<input type = "text" id = "input-new-book-isbn" name = "new-book-isbn"><br />
+            </div>
+            <br />
+            <br />
+            <br />
+            <span class = "align-top-text">簡介：</span><textarea id = "input-new-book-intro" name="new-book-intro" rows="4" cols="50"></textarea>
+            <br />
+            <br />
+            <br />
+            <div id = "div-my-shop-new-book-wrap-A">
+              書籍封面：<input type="file" id="file-uploader" data-target="file-uploader" accept="image/jpeg, image/png, image/webp" /><br />
+              （接受 jpg、png、webp 格式）<br />
+            </div>
+            <div id = "div-my-shop-new-book-wrap-B">
+              <button id = "shop-page-button-new-book-submit" onclick = "clicked_my_shop_new_book_submit()">送出</button><br />
+            </div>
+            <br />
+            <br />
+          </div>
+
+          <div id = "div-my-shop-launched-books">
+            <table class = "table-my-shop-launched-books-header">
+              <tbody>
+                <tr>
+                  <td class = "td-my-shop-launched-books-header-book-info">書籍明細</td>
+                  <td class = "td-my-shop-launched-books-header-isbn">ISBN</td>
+                  <td class = "td-my-shop-launched-books-header-change-detail">變更明細</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul id = "ul-my-shop-launched-books-item-list">
+            </ul>
+          </div>
+
+          <div id = "div-my-shop-launched-books-detail-overlay">
+            <div id = "div-my-shop-launched-books-detail-edited-poparea">
+              <div id = "div-my-shop-launched-books-detail-edited-poparea-title">
+                書籍資料編輯
+              </div>
+              <button id = "button-my-shop-launched-books-detail-edited-poparea-close" onclick = "clicked_my_shop_launched_books_detail_edited_poparea_close()">關閉</button>
+              <br />
+              <br />
+              書籍編號：<span id = "span-my-shop-launched-books-detail-book-id"></span><br />
+              <br />
+              書名：<input type = "text" id = "input-my-shop-launched-books-detail-title"><br />
+              <br />
+              作者：<input type = "text" id = "input-my-shop-launched-books-detail-author"><br />
+              <br />
+              出版日期（yyyy-mm-dd）：<input type = "text" id = "input-my-shop-launched-books-detail-publication-date"><br />
+              <br />
+              ISBN：<input type = "text" id = "input-my-shop-launched-books-detail-isbn"><br />
+              <br />
+              價格：<input type = "text" id = "input-my-shop-launched-books-detail-price"><br />
+              <br />
+              <span class="align-top-text">簡介：</span><textarea id = "input-my-shop-launched-books-detail-intro" rows = "4" cols = "50"></textarea><br />
+              <br />
+              <button id = "button-my-shop-launched-books-detail-edited-poparea-launching-book" onclick = "clicked_my_shop_launched_books_detail_edited_poparea_launching_book()">上架此書</button>
+              <button id = "button-my-shop-launched-books-detail-edited-poparea-updating-detail" onclick = "clicked_my_shop_launched_books_detail_edited_poparea_updating_detail_send()">更新書籍資料</button>
+              <button id = "button-my-shop-launched-books-detail-edited-poparea-discontinuing-book" onclick = "clicked_my_shop_launched_books_detail_edited_poparea_discontinuing_book()">下架此書</button>
+              <br />
+              <br />
+              目前的書籍封面：<br />
+              <img id = "img-my-shop-launched-books-detail-cover-image" />
+              <br />
+              <br />
+              新的書籍封面：<input type="file" id="updating-image-uploader" accept="image/jpeg, image/png, image/webp" /><br />
+              （接受 jpg、png、webp 格式）<br />
+              <br />
+              <button id = "button-my-shop-launched-books-detail-edited-poparea-new-cover-image" onclick = "clicked_my_shop_launched_books_detail_edited_poparea_new_cover_image()">上傳新的書籍封面</button>
+
+              <div id = "div-my-shop-launched-books-updating-detail-status-info-overlay">
+                <div id = "div-my-shop-launched-books-updating-detail-status-info-poparea">
+                  <div id = "div-my-shop-launched-books-updating-detail-status-info-poparea-title"></div>
+                  <div id = "div-my-shop-launched-books-updating-detail-status-info-poparea-text"></div>
+                  <br />
+                  <button id = "button-my-shop-launched-books-updating-detail-status-info-poparea-close" onclick = "clicked_my_shop_launched_books_updating_detail_status_info_poparea_close()">關閉</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id = "div-my-shop-launched-books-detail-status-info-overlay">
+            <div id = "div-my-shop-launched-books-detail-status-info-poparea">
+              <div class = "div-my-shop-launched-books-detail-status-info-poparea-title">
+                失敗
+              </div>
+              <div id = "div-my-shop-launched-books-detail-status-info-poparea-text">
+              </div>
+              <br />
+              <button id = "button-my-shop-launched-books-detail-status-info-poparea-close" onclick = "clicked_my_shop_launched_books_detail_status_info_poparea_close()">關閉</button>
+            </div>
+          </div>
+        </div>
+        
+        <div id = "div-shopping-cart">
+          <table class = "table-shopping-cart-header">
+            <tbody>
+              <tr>
+                <td class = "shopping-cart-header-book-info">書籍明細</td>
+                <td class = "shopping-cart-header-book-price">單價</td>
+                <td class = "shopping-cart-header-book-number">數量</td>
+                <td class = "shopping-cart-header-book-sum">小計</td>
+                <td class = "shopping-cart-header-change-detail">變更明細</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul id = "div-shopping-cart-item-list">
+          </ul>
+          <div id = "div-shopping-cart-total"></div>
+          <br />
+          <button id = "shopping-cart-button-checkout" onclick = "clicked_shopping_cart_checkout()"> 結帳 </button>
+          <br />
+          <br />
+        </div>
+        <div id = "div-shopping-cart-checkout-overlay">
+          <div id = "display-shopping-cart-checkout">
+            <div class = "shopping-cart-checkout-title">訂單聯絡資訊</div>
+            <br />
+            <button id = "shopping-cart-button-checkout-close" onclick = "clicked_shopping_cart_checkout_detail_close()">關閉</button>
+            <br />
+            收件人：<input type = "text" id = "input-shopping-cart-checkout-name"><br />
+            <br />
+            電話：<input type = "text" id = "input-shopping-cart-checkout-tel"><br />
+            <br />
+            地址：<input type = "text" id = "input-shopping-cart-checkout-address"><br />
+            <br />
+            金額：<span id = "span-display-shopping-cart-checkout-total-price"></span> 元<br />
+            <br />
+            <button id = "shopping-cart-button-checkout-sending" onclick = "clicked_shopping_cart_checkout_sending()">送出訂單</button>
+          </div>
+        </div>
+        
+        <div id = "div-my-order">
+          <ul id = "ul-my-order-item-list"></ul>
+          <div id = "div-my-order-status-info-overlay">
+            <div id = "div-my-order-status-info-poparea">
+              <div id = "div-my-order-status-info-poparea-text"></div>
+              <br />
+              <button id = "button-my-order-confirm-deleting-yes">確定</button>
+              <button id = "button-my-order-confirm-deleting-no" onclick = "clicked_button_my_order_status_info_cancel()">取消</button>
+              <button id = "button-my-order-confirm-deleting-close" onclick = "clicked_button_my_order_status_info_close()">關閉</button>
+            </div>
+          </div>
+          <div id = "div-my-order-list-none-data"></div>
+        </div>
+      </div>
+    </div>
+    <p id = "result"></p>
+    <div id = "div-csrf-token"></div>
+  </body>
+</html>

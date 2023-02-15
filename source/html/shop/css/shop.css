@@ -1,0 +1,1406 @@
+
+:root
+{
+  --my-shop-launched-books-column-book-info-width: 400px ;
+  --my-shop-launched-books-column-isbn-width: 300px ;
+  --my-shop-launched-books-column-change-detail-width: 200px ;
+  --my-shop-orders-list-column-order-id-width: 160px ;
+  --my-shop-orders-list-column-order-date-width: 300px ;
+  --my-shop-orders-list-column-name-width: 150px ;
+  --my-shop-orders-list-column-tel-width: 180px ;
+  --my-shop-orders-list-column-address-width: 300px ;
+  --my-shop-orders-list-column-book-id-width: 160px ;
+  --my-shop-orders-list-column-book-isbn-width: 300px ;
+  --my-shop-orders-list-column-book-title-width: 280px ;
+  --my-shop-orders-list-column-price-width: 150px ;
+  --my-shop-orders-list-column-number-width: 120px ;
+  --my-shop-orders-list-column-sum-width: 190px ;
+}
+
+.theme-light
+{
+  --color-primary: #000 ;
+  --bgcolor-primary: #ffffff ;
+  
+  --color-second: #111 ;
+  --bgcolor-second: #eee ;
+  
+  --bgcolor-text-editor: #ffffff ;
+  
+  --bgcolor-checkbox: #888 ;
+  --bgcolor-checkbox-hover: #bbb ;
+  
+  --color-outer-border: #999 ;
+}
+
+.theme-dark
+{
+  --color-primary: #eee ;
+  --bgcolor-primary: #000 ;
+  
+  --color-second: #ddd ;
+  --bgcolor-second: #222 ;
+  
+  --bgcolor-text-editor: #bbb ;
+  
+  --bgcolor-checkbox: #666 ;
+  --bgcolor-checkbox-hover: #aaa ;
+  
+  --color-outer-border: #666 ;
+}
+
+/* The container */
+.checkbox-container
+{
+  display: block ;
+  position: relative ;
+  padding-left: 35px ;
+  margin-bottom: 12px ;
+  cursor: pointer ;
+  //font-size: 22px ;
+  font-size: 2rem ;
+  -webkit-user-select: none ;
+  -moz-user-select: none ;
+  -ms-user-select: none ;
+  user-select: none ;
+  
+  top: 10px ;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input
+{
+  position: absolute ;
+  opacity: 0 ;
+  cursor: pointer ;
+  height: 0 ;
+  width: 0 ;
+}
+
+/* Create a custom checkbox */
+.checkmark
+{
+  position: absolute ;
+  top: 0 ;
+  left: 0 ;
+  //height: 25px ;
+  //width: 25px ;
+  height: 2rem ;
+  width: 2rem ;
+  background-color: var(--bgcolor-checkbox) ;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark
+{
+  background-color: var(--bgcolor-checkbox-hover) ;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark
+{
+  background-color: #2196F3 ;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after
+{
+  content: "" ;
+  position: absolute ;
+  display: none ;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after
+{
+  display: block ;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after
+{
+  //left: 9px ;
+  left: 12px ;
+  //top: 5px ;
+  top: 6px ;
+  //width: 5px ;
+  width: 6px ;
+  //height: 10px ;
+  height: 13px ;
+  border: solid white ;
+  //border-width: 0 3px 3px 0 ;
+  border-width: 0 4px 4px 0 ;
+  -webkit-transform: rotate(45deg) ;
+  -ms-transform: rotate(45deg) ;
+  transform: rotate(45deg) ;
+}
+
+
+body
+{
+  color: var(--color-primary) ;
+  background-color: var(--bgcolor-primary) ;
+}
+
+body, button, input, textarea
+{
+  font-size: 2rem ;
+}
+
+.h1-title
+{
+  width: 1440px ;
+  margin: auto ;
+}
+
+.wrap
+{
+  display: flex ;
+  width: 1440px ;
+  margin: auto ;
+}
+
+.menu-list
+{
+  width: 200px ;
+}
+
+#main-frame
+{
+  margin-top: 5px ;
+  margin-left: 15px ;
+  margin-bottom: 5px ;
+  color: var(--color-second) ;
+  background-color: var(--bgcolor-second) ;
+  width: 1220px ;
+}
+
+#side-section
+{
+  width: 7% ;
+}
+
+
+
+
+
+
+
+.button-selected {
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  border-radius: 25px ;
+}
+
+.button-not-selected {
+  background-color: #4D4AE8; /* gray */
+  border: 1px solid #adb1b8;
+}
+
+.button-back {
+  background-color: #31b0d5;
+  border: 1px solid #269abc;
+}
+
+
+
+#shop-page-button-books-list, #shop-page-button-basic-info, #shop-page-button-my-shop, #shop-page-button-shopping-cart, #shop-page-button-my-order, .button-back, #shop-page-button-checking-orders, #shop-page-button-new-book, #shop-page-button-launched-books
+{
+  text-decoration: none ;
+  color: white ;
+  font-size: 2rem ;
+  text-align: center ;
+  cursor: pointer ;
+}
+
+#shop-page-button-books-list, #shop-page-button-basic-info, #shop-page-button-my-shop, #shop-page-button-shopping-cart, #shop-page-button-my-order, .button-back
+{
+  padding: 15px 15px ;
+  margin-top: 5px ;
+  margin-bottom: 15px ;
+  width: 200px ;
+}
+
+#edit-description {
+  font-size: 2rem ;
+  vertical-align: top ;
+}
+
+
+
+
+
+#div-books-list
+{
+  //padding-left: 60px ;
+  margin: auto ;
+}
+
+#div-basic-info
+{
+  display: none ;
+  margin-top: 10px ;
+  margin-left: 10px ;
+  padding-left: 30px ;
+}
+
+#div-my-shop
+{
+  display: none ;
+  margin-top: 10px ;
+  margin-left: 10px ;
+  padding-left: 30px ;
+}
+
+#div-shopping-cart
+{
+  display: none ;
+  margin-top: 10px ;
+  margin-left: 10px ;
+  padding-left: 30px ;
+}
+
+#div-my-order
+{
+  display: none ;
+  margin-top: 10px ;
+  margin-left: 10px ;
+  padding-left: 30px ;
+}
+
+.single-item-wrap
+{
+  witdh: 260px ;
+  height: 369px ;
+  display: inline-block ;
+  margin-left: 15px ;
+  margin-right: 15px ;
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+}
+
+.item-image
+{
+  width: 260px ;
+  height: 260px ;
+  object-fit: contain ;
+  cursor: pointer ;
+}
+
+.item-title
+{
+  width: 260px ;
+  height: 84px ;
+  overflow: hidden ; // 加上 hidden 之後，中文字的高度跟只有英文字的高度才會一樣喔！
+  cursor: pointer ;
+}
+
+
+
+
+
+
+#shop-page-button-checking-orders, #shop-page-button-new-book, #shop-page-button-launched-books
+{
+  padding-top: 10px ;
+  padding-bottom: 10px ;
+  padding-left: 15px ;
+  padding-right: 15px ;
+  margin-top: 5px ;
+  margin-bottom: 15px ;
+}
+
+#shop-page-button-checking-orders, #shop-page-button-new-book
+{
+  margin-right: 70px ;
+}
+
+#shop-page-button-launched-books
+{
+  width: 160px ;
+}
+
+
+
+#div-my-shop-checking-orders
+{
+  margin-top: 20px ;
+}
+
+#div-my-shop-checking-orders-display-orders
+{
+  overflow-x: scroll ;
+  overflow-y: auto ;
+  width: 100% ;
+  height: 700px ;
+}
+
+#div-my-shop-new-book, #div-my-shop-launched-books
+{
+  display: none ;
+  margin-top: 20px ;
+}
+
+
+
+
+#input-new-book-price
+{
+  width: 110px ;
+}
+
+#input-new-book-title
+{
+  width: 300px ;
+  margin-right: 200px ;
+}
+
+#input-new-book-author
+{
+  width: 200px ;
+}
+
+#input-new-book-publication-date
+{
+  width: 170px ;
+  margin-right: 270px ;
+}
+
+#div-my-shop-new-book-attr-wrap
+{
+  display: flex ;
+}
+
+#div-my-shop-new-book-attr-A
+{
+  width: auto ;
+  display: inline-block ;
+}
+
+#div-my-shop-new-book-attr-B
+{
+  width: auto ;
+  display: inline-block ;
+  vertical-align: top ;
+}
+
+#div-my-shop-new-book-wrap-A
+{
+  display: inline-block ;
+}
+
+#div-my-shop-new-book-wrap-B
+{
+  display: inline-block ;
+  width: 350px ;
+  text-align: right ;
+}
+
+
+
+
+
+
+.align-top-text
+{
+  vertical-align: top ;
+}
+
+
+#input-new-book-price, #input-new-book-title, #input-new-book-publication-date, #input-new-book-author, #input-new-book-isbn, #input-new-book-intro, #input-basic-info-name, #input-basic-info-tel, #input-basic-info-address, #input-shopping-cart-checkout-name, #input-shopping-cart-checkout-tel, #input-shopping-cart-checkout-address, #input-my-shop-launched-books-detail-title, #input-my-shop-launched-books-detail-author, #input-my-shop-launched-books-detail-publication-date, #input-my-shop-launched-books-detail-isbn, #input-my-shop-launched-books-detail-price, #input-my-shop-launched-books-detail-intro
+{
+  background-color: var(--bgcolor-text-editor) ;
+}
+
+#input-new-book-intro, #input-my-shop-launched-books-detail-intro
+{
+  resize: none ;
+}
+
+#div-book-detail-overlay
+{
+  position: fixed ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: rgba(0,0,0,0.5) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+  //cursor: pointer ; /* Add a pointer on hover */
+}
+
+#display-book-detail
+{
+  background-color: var(--bgcolor-primary) ;
+  position: absolute ;
+  width: 52% ;
+  height: 75% ;
+  top: 6% ;
+  left: 24% ;
+  padding: 20px ;
+  overflow-y: scroll ;
+  border: 1px solid var(--color-primary) ;
+}
+
+#div-book-detail-info
+{
+  display: flex ;
+}
+
+#div-book-detail-wrap-A
+{
+  display: inline-block ;
+  vertical-align: top ;
+}
+
+#div-book-detail-cover-image
+{
+  width: 500px ;
+  height: 500px ;
+  object-fit: contain ;
+  display: inline-block ;
+  padding-right: 20px ;
+  padding-bottom: 20px ;
+}
+
+
+
+
+#shop-page-button-book-detail-close
+{
+  margin: auto ;
+  display: block ;
+}
+
+#div-book-detail-title
+{
+  font-weight: bold ;
+}
+
+.book-detail-price-number-part
+{
+  color: #ac6532 ;
+}
+
+#shop-page-button-book-detail-number-minus, #shop-page-button-book-detail-number-plus
+{
+  width: 37px ;
+}
+
+#shop-page-book-detail-number
+{
+  padding-left: 5px ;
+  padding-right: 5px ;
+}
+
+#div-book-detail-sum
+{
+  padding-left: 100px ;
+  padding-right: 100px ;
+}
+
+#shop-page-button-book-detail-putting-in-shopping-cart
+{
+  margin-right: 100px ;
+}
+
+
+
+
+
+#div-shopping-cart-item-list, #ul-my-shop-orders-list-item-list, #ul-my-shop-launched-books-item-list
+{
+  padding-left: 0 ;
+  list-style-type: none ;
+  margin-top: 0 ;
+}
+
+.table-shopping-cart-header, .table-my-shop-launched-books-header, .table-my-shop-orders-list-header
+{
+  background-color: var(--bgcolor-primary) ;
+}
+
+.table-my-shop-orders-list-header
+{
+  white-space: nowrap ;
+}
+
+.table-shopping-cart-header
+{
+  padding: 5px ;
+  border-left: 1px solid var(--bgcolor-primary) ;
+  border-right: 1px solid var(--bgcolor-primary) ;
+}
+
+.table-my-shop-launched-books-header, .table-my-shop-orders-list-header
+{
+  padding: 5px ;
+  border-left: 1px solid var(--bgcolor-primary) ;
+  border-right: 1px solid var(--bgcolor-primary) ;
+}
+
+.table-my-shop-orders-list-single-item-normal, .table-my-shop-orders-list-single-item-last, .table-my-shop-launched-books-single-item-normal, .table-my-shop-launched-books-single-item-last
+{
+  border-left: 1px solid ;
+  border-right: 1px solid ;
+  border-top: 1px solid ;
+  padding: 20px 5px ;
+}
+
+.table-my-shop-orders-list-single-item-last, .table-my-shop-launched-books-single-item-last
+{
+  border-bottom: 1px solid ;
+}
+
+#input-my-shop-launched-books-detail-title
+{
+  width: 800px ;
+}
+
+#input-my-shop-launched-books-detail-author
+{
+  width: 800px ;
+}
+
+#input-my-shop-launched-books-detail-publication-date
+{
+  width: 170px ;
+}
+
+#input-my-shop-launched-books-detail-price
+{
+  width: 150px ;
+}
+
+#img-my-shop-launched-books-detail-cover-image
+{
+  width: 500px ;
+  height: 500px ;
+  object-fit: contain ;
+  display: block ;
+  margin: auto ;
+}
+
+.table-shopping-cart-single-item-normal, .table-shopping-cart-single-item-last
+{
+  border-left: 1px solid ;
+  border-right: 1px solid ;
+  border-top: 1px solid ;
+  padding: 5px ;
+}
+
+.table-shopping-cart-single-item-last
+{
+  border-bottom: 1px solid ;
+}
+
+.shopping-cart-header-book-info, .td-my-order-item-header-book-info
+{
+  width: 400px ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-order-id
+{
+  min-width: var(--my-shop-orders-list-column-order-id-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-order-date
+{
+  min-width: var(--my-shop-orders-list-column-order-date-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-name
+{
+  min-width: var(--my-shop-orders-list-column-name-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-tel
+{
+  min-width: var(--my-shop-orders-list-column-tel-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-address
+{
+  min-width: var(--my-shop-orders-list-column-address-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-book_id
+{
+  min-width: var(--my-shop-orders-list-column-book-id-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-book-isbn
+{
+  min-width: var(--my-shop-orders-list-column-book-isbn-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-book-title
+{
+  min-width: var(--my-shop-orders-list-column-book-title-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-price
+{
+  min-width: var(--my-shop-orders-list-column-price-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-number
+{
+  min-width: var(--my-shop-orders-list-column-number-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-header-sum
+{
+  min-width: var(--my-shop-orders-list-column-sum-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-orders-list-single-item-order-id
+{
+  min-width: var(--my-shop-orders-list-column-order-id-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-orders-list-single-item-order-date
+{
+  min-width: var(--my-shop-orders-list-column-order-date-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-orders-list-single-item-name
+{
+  min-width: var(--my-shop-orders-list-column-name-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-orders-list-single-item-tel
+{
+  min-width: var(--my-shop-orders-list-column-tel-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-orders-list-single-item-address
+{
+  min-width: var(--my-shop-orders-list-column-address-width) ;
+  max-width: var(--my-shop-orders-list-column-address-width) ;
+  vertical-align: top ;
+  padding-left: 30px ;
+  padding-right: 30px ;
+  height: 128px ;
+  overflow-y: auto ;
+  display: block ;
+  box-sizing: border-box ;
+}
+
+.td-my-shop-orders-list-single-item-book-id
+{
+  min-width: var(--my-shop-orders-list-column-book-id-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-orders-list-single-item-book-isbn
+{
+  min-width: var(--my-shop-orders-list-column-book-isbn-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-orders-list-single-item-book-title
+{
+  min-width: var(--my-shop-orders-list-column-book-title-width) ;
+  height: 128px ;
+  overflow-y: auto ;
+  display: block ;
+  padding-left: 15px ;
+  padding-right: 15px ;
+  box-sizing: border-box ;
+}
+
+.td-my-shop-orders-list-single-item-price
+{
+  min-width: var(--my-shop-orders-list-column-price-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-orders-list-single-item-number
+{
+  min-width: var(--my-shop-orders-list-column-number-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-orders-list-single-item-sum
+{
+  min-width: var(--my-shop-orders-list-column-sum-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-launched-books-header-book-info
+{
+  width: var(--my-shop-launched-books-column-book-info-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-launched-books-header-isbn
+{
+  width: var(--my-shop-launched-books-column-isbn-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-launched-books-header-change-detail
+{
+  width: var(--my-shop-launched-books-column-change-detail-width) ;
+  text-align: center ;
+}
+
+.td-my-shop-launched-books-single-item-book-info
+{
+  width: var(--my-shop-launched-books-column-book-info-width) ;
+}
+
+.td-my-shop-launched-books-single-item-isbn
+{
+  width: var(--my-shop-launched-books-column-isbn-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+.td-my-shop-launched-books-single-item-change-detail
+{
+  width: var(--my-shop-launched-books-column-change-detail-width) ;
+  text-align: center ;
+  vertical-align: top ;
+}
+
+#div-my-shop-launched-books-detail-overlay
+{
+  position: fixed ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: rgba(0,0,0,0.5) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#div-my-shop-launched-books-detail-status-info-overlay
+{
+  position: fixed ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: rgba(0,0,0,0.5) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#div-my-shop-launched-books-detail-edited-poparea
+{
+  color: var(--color-second) ;
+  background-color: var(--bgcolor-second) ;
+  position: absolute ;
+  width: 60% ;
+  height: 94% ;
+  top: 1% ;
+  left: 20% ;
+  padding: 20px ;
+  overflow-y: scroll ;
+  border: 1px solid var(--color-primary) ;
+}
+
+#div-my-shop-launched-books-detail-edited-poparea-title
+{
+  font-size: 2.5rem ;
+  font-weight: bold ;
+  display: inline-block ;
+}
+
+#button-my-shop-launched-books-detail-edited-poparea-close
+{
+  display: inline-block ;
+  position: absolute ;
+  right: 5% ;
+}
+
+#div-my-shop-launched-books-detail-status-info-poparea
+{
+  background-color: var(--bgcolor-primary) ;
+  position: absolute ;
+  width: 30% ;
+  height: 30% ;
+  top: 35% ;
+  left: 35% ;
+  //overflow-y: scroll ;
+  border: 3px solid ;
+}
+
+.div-my-shop-launched-books-detail-status-info-poparea-title
+{
+  padding-top: 15px ;
+  padding-bottom: 15px ;
+  text-align: center ;
+  font-size: 2.5rem ;
+  font-weight: bold ;
+}
+
+#div-my-shop-launched-books-detail-status-info-poparea-text
+{
+  height: 50px ;
+  padding: 20px ;
+  overflow-y: auto ;
+}
+
+#button-my-shop-launched-books-detail-status-info-poparea-close
+{
+  display: block ;
+  margin: auto ;
+}
+
+#button-my-shop-launched-books-detail-edited-poparea-updating-detail
+{
+  display: inline-block ;
+  position: absolute ;
+  left: 41% ;
+}
+
+#button-my-shop-launched-books-detail-edited-poparea-discontinuing-book
+{
+  position: absolute ;
+  right: 5% ;
+}
+
+#button-my-shop-launched-books-detail-edited-poparea-launching-book
+{
+  position: absolute ;
+  left: 5% ;
+}
+
+#button-my-shop-launched-books-detail-edited-poparea-new-cover-image
+{
+  display: block ;
+  margin: auto ;
+}
+
+#div-my-shop-launched-books-updating-detail-status-info-overlay
+{
+  position: fixed ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: rgba(0,0,0,0.5) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#div-my-shop-launched-books-updating-detail-status-info-poparea
+{
+  background-color: var(--bgcolor-second) ;
+  position: absolute ;
+  width: 30% ;
+  height: 30% ;
+  top: 35% ;
+  left: 35% ;
+  //overflow-y: scroll ;
+  border: 3px solid ;
+}
+
+#div-my-shop-launched-books-updating-detail-status-info-poparea-title
+{
+  padding-top: 15px ;
+  padding-bottom: 15px ;
+  text-align: center ;
+  font-size: 2.5rem ;
+  font-weight: bold ;
+}
+
+#div-my-shop-launched-books-updating-detail-status-info-poparea-text
+{
+  height: 50px ;
+  padding: 20px ;
+  overflow-y: auto ;
+}
+
+#button-my-shop-launched-books-updating-detail-status-info-poparea-close
+{
+  display: block ;
+  margin: auto ;
+}
+
+.td-my-order-item-header-book-info
+{
+  border-right: 1px solid var(--color-outer-border) ;
+  padding: 5px 0 ;
+}
+
+.td-shopping-cart-single-item-book-info, .td-my-order-item-book-info-normal, .td-my-order-item-book-info-last
+{
+  width: 400px ;
+}
+
+.td-my-order-item-book-info-normal, .td-my-order-item-book-info-last
+{
+  border-right: 1px solid var(--color-outer-border) ;
+  padding: 15px 0 ;
+}
+
+.td-my-order-item-book-info-normal
+{
+  border-bottom: 1px solid ;
+}
+
+.shopping-cart-item-image, .my-order-item-image, .img-my-shop-launched-books-item-image
+{
+  width: 128px ;
+  height: 128px ;
+  object-fit: contain ;
+}
+
+.shopping-cart-item-image
+{
+  //cursor: pointer ;
+}
+
+.shopping-cart-item-title, .my-order-item-title, .div-my-shop-launched-books-item-title
+{
+  display: inline-block ;
+  vertical-align: top ;
+  width: 262px ;
+  height: 128px ;
+  overflow: hidden ;
+  padding-left: 10px ;
+}
+
+.shopping-cart-header-book-price, .td-my-order-item-header-book-price
+{
+  width: 160px ;
+  text-align: center ;
+}
+
+.td-my-order-item-header-book-price
+{
+  border-right: 1px solid var(--color-outer-border) ;
+  padding: 5px 0 ;
+}
+
+.td-shopping-cart-single-item-price
+{
+  vertical-align: top ;
+  width: 160px ;
+  text-align: center ;
+}
+
+.td-my-order-item-book-price-normal
+{
+  vertical-align: top ;
+  width: 160px ;
+  text-align: center ;
+}
+
+.td-my-order-item-book-price-normal
+{
+  border-bottom: 1px solid ;
+}
+
+.td-my-order-item-book-price-last
+{
+  vertical-align: top ;
+  width: 160px ;
+  text-align: center ;
+  padding: 0 ;
+}
+
+.td-my-order-item-book-price-normal, .td-my-order-item-book-price-last
+{
+  border-right: 1px solid var(--color-outer-border) ;
+  padding: 15px 0 ;
+}
+
+.shopping-cart-header-book-number
+{
+  width: 160px ;
+  text-align: center ;
+}
+
+.td-my-order-item-header-book-number
+{
+  width: 120px ;
+  text-align: center ;
+}
+
+.td-my-order-item-header-book-number
+{
+  border-right: 1px solid var(--color-outer-border) ;
+  padding: 5px 0 ;
+}
+
+.td-shopping-cart-single-item-number
+{
+  vertical-align: top ;
+  width: 160px ;
+  text-align: center ;
+}
+
+.td-my-order-item-book-number-normal, .td-my-order-item-book-number-last
+{
+  vertical-align: top ;
+  width: 120px ;
+  text-align: center ;
+}
+
+.td-my-order-item-book-number-normal, .td-my-order-item-book-number-last
+{
+  border-right: 1px solid var(--color-outer-border) ;
+  padding: 15px 0 ;
+}
+
+.td-my-order-item-book-number-normal
+{
+  border-bottom: 1px solid ;
+}
+
+.span-my-order-item-book-number
+{
+  position: relative ;
+  top: 5px ;
+}
+
+.shopping-cart-header-book-sum
+{
+  width: 180px ;
+  text-align: center ;
+}
+
+.td-my-order-item-header-book-sum
+{
+  border-right: 1px solid var(--color-outer-border) ;
+  text-align: center ;
+  padding: 5px 0 ;
+  width: 180px ;
+}
+
+.td-my-order-item-header-changing
+{
+  text-align: center ;
+  padding: 5px 0 ;
+  width: 180px ;
+}
+
+.td-shopping-cart-single-item-sum
+{
+  vertical-align: top ;
+  width: 180px ;
+  text-align: center ;
+}
+
+.td-my-order-item-book-sum-normal, .td-my-order-item-book-sum-last
+{
+  border-right: 1px solid var(--color-outer-border) ;
+  vertical-align: top ;
+  text-align: center ;
+  padding: 15px 0 ;
+  width: 180px ;
+}
+
+.td-my-order-item-book-sum-normal
+{
+  border-bottom: 1px solid ;
+}
+
+.td-my-order-item-changing-normal, .td-my-order-item-changing-last
+{
+  vertical-align: top ;
+  text-align: center ;
+  padding: 15px 0 ;
+  width: 180px ;
+}
+
+.td-my-order-item-changing-normal
+{
+  border-bottom: 1px solid ;
+}
+
+.shopping-cart-header-change-detail
+{
+  width: 130px ;
+  text-align: center ;
+}
+
+.td-shopping-cart-single-item-change-detail
+{
+  vertical-align: top ;
+  width: 130px ;
+  text-align: center ;
+}
+
+#shopping-cart-button-checkout
+{
+  padding-left: 15px ;
+  padding-right: 15px ;
+}
+
+#div-shopping-cart-checkout-overlay
+{
+  position: fixed ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: rgba(0,0,0,0.5) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+  //cursor: pointer ; /* Add a pointer on hover */
+}
+
+#display-shopping-cart-checkout
+{
+  background-color: var(--bgcolor-primary) ;
+  position: absolute ;
+  width: 52% ;
+  height: 75% ;
+  top: 6% ;
+  left: 24% ;
+  padding: 20px ;
+  overflow-y: scroll ;
+}
+
+.shopping-cart-checkout-title
+{
+  font-size: 2.5rem ;
+  font-weight: bold ;
+}
+
+#shopping-cart-button-checkout-close
+{
+  margin: auto ;
+  display: block ;
+}
+
+#div-books-list, #div-my-order
+{
+  overflow-y: scroll ;
+  height: 900px ;
+}
+
+#div-my-shop-launched-books
+{
+  overflow-y: scroll ;
+  height: 800px ;
+}
+
+.button-my-shop-launched-books-single-item-edit
+{
+  padding: 5px 10px ;
+}
+
+#ul-my-order-item-list
+{
+  padding-left: 0 ;
+  list-style-type: none ;
+  margin-top: 5px ;
+  margin-right: 20px ;
+  width: 97% ;
+}
+
+.div-my-order-single-item-contact-info
+{
+  border: 1px solid ;
+}
+
+.div-my-order-single-item-contact-info-serial-number, .div-my-order-single-item-contact-info-date, .div-my-order-single-item-contact-info-name, .div-my-order-single-item-contact-info-tel, .div-my-order-single-item-contact-info-address, .div-my-order-single-item-contact-info-total
+{
+  padding-top: 5px ;
+  padding-left: 10px ;
+  padding-right: 10px ;
+  padding-bottom: 1rem ;
+}
+
+.table-my-order-single-item-detail
+{
+  width: 100% ;
+  border-collapse: collapse ;
+}
+
+.tr-my-order-item-header
+{
+}
+
+.my-order-detail-header
+{
+  border-bottom: 1px solid var(--color-outer-border) ;
+  width: 100% ;
+  font-weight: bold ;
+  border-collapse: collapse ;
+}
+
+.div-my-order-show-detail-toggle-wrap
+{
+  position: relative ;
+}
+
+.span-my-order-show-detail-lead-line
+{
+  display: inline-block ;
+  height: 14px ;
+  background-color: var(--bgcolor-second) ;
+  border-left: 1px solid ;
+  position: absolute ;
+  left: 30px ;
+}
+
+.div-my-order-show-detail-toggle
+{
+  font-size: 1rem ;
+}
+
+.span-my-order-show-detail-toggle
+{
+  display: inline-block ;
+  font-size: 1rem ;
+  width: 13px ;
+  height: 17px ;
+  padding-left: 4px ;
+  border: 1px solid ;
+  position: relative ;
+  left: 21px ;
+  top: 11px ;
+  background-color: var(--bgcolor-second) ;
+  cursor: pointer ;
+}
+
+.span-my-order-show-detail-toggle-sign
+{
+  position: relative ;
+}
+
+.span-my-order-show-detail-toggle-text
+{
+  font-size: 1rem ;
+  position: relative ;
+  left: 21px ;
+  top: 12px ;
+  cursor: pointer ;
+}
+
+.div-my-order-display-detail
+{
+  display: none ;
+  position: relative ;
+  top: -6px ;
+  left: 46px ;
+  border: 1px solid var(--color-outer-border) ;
+  padding-left: 15px ;
+  padding-right: 15px ;
+}
+
+.my-order-separator
+{
+  border-bottom: 1px dashed ;
+  margin-bottom: 15px ;
+}
+
+#div-my-order-status-info-overlay
+{
+  position: fixed ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: rgba(0,0,0,0.5) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#div-my-order-status-info-poparea
+{
+  background-color: var(--bgcolor-second) ;
+  position: absolute ;
+  width: 30% ;
+  height: 30% ;
+  top: 35% ;
+  left: 35% ;
+  //overflow-y: scroll ;
+  border: 3px solid ;
+}
+
+#div-my-order-status-info-poparea-text
+{
+  margin: 10px 20px ;
+  text-align: center ;
+}
+
+#button-my-order-confirm-deleting-yes
+{
+  display: inline-block ;
+  position: absolute ;
+  left: 25% ;
+  padding: 5px 10px ;
+}
+
+#button-my-order-confirm-deleting-no
+{
+  display: inline-block ;
+  position: absolute ;
+  right: 25% ;
+  padding: 5px 10px ;
+}
+
+#button-my-order-confirm-deleting-close
+{
+  display: none ;
+  position: absolute ;
+  padding: 5px 10px ;
+  left: 50% ;
+  transform: translateX(-50%) ;
+}
+
+#checkbox-send-mail
+{
+  width: 26px ;
+  height: 26px ;
+}
+
+#div-my-order-list-none-data
+{
+  display: none ;
+  text-align: center ;
+  margin-top: 20px ;
+}
+
+#div-csrf-token
+{
+  display: none ;
+}

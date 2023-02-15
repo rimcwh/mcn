@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>chat - mcn site</title>
+    <link rel = "stylesheet" href = "css/f2.css">
+    <link rel = "stylesheet" href = "css/test-theme.css">
+    
+    <script src = "js/test-theme.js"></script>
+    
+  </head>
+  </head>
+  <body>
+    <h1 class = "h1-title">聊天室</h1>
+    <label class="switch">
+      <input type="checkbox" id = "checkbox-switch-theme" onclick = "switch_theme ()">
+      <span class="slider round"></span>
+    </label>
+    <br /><br />
+    <div class = "wrap">
+      <div class = "menu-list">
+        <button id = "chat-page-button-account-setting" class = "button-selected" onclick = "clicked_account ()">帳號</button>
+        <button id = "chat-page-button-public-room" class = "button-not-selected" onclick = "clicked_public_room ()">公開聊天室</button>
+        <button class = "button-not-selected">好友訊息</button>
+        <button class = "button-not-selected">Button4</button>
+        <br />
+        <br />
+        <button class = "button-back" onclick = "clicked_back_to_lobby ()">返回大廳</button>
+      </div>
+      <div id = "main-frame">
+        <div id = "div-account-setting">
+          <div id = "show-account-id"></div>
+          <br />
+          <button class = "account-setting-edit-button" onclick = "click_edit_setting_button ()">變更</button>
+          <button class = "account-setting-save-button" onclick = "click_save_setting_button ()" style = "display: none ;">儲存</button>
+          <button class = "account-setting-cancel-button" onclick = "click_cancel_setting_button ()" style = "display: none ;">取消</button>
+          <br />
+          <br />
+          <div id = "account-setting-display-data">
+            <div id = "show-nickname">帳號：</div>
+            <br />
+            <div id = "show-description">消息狀態：</div>
+            <br />
+            <div id = "show-theme">主題：</div>
+            <br />
+            <div id = "show-allow-info-public">允許公開訊息：</div>
+            <br />
+            <div id = "show-allow-search-id">允許搜尋帳號：</div>
+            <br />
+            <div id = "show-message-bottom-to-top">由下到上顯示：</div>
+            <br />
+          </div>
+
+          <div id = "account-setting-edit-data" style = "display: none ;">
+            暱稱：<input type = "text" id = "edit-nickname"><br />
+            <br />
+            消息狀態：<textarea id = "edit-description" rows = "4" cols = "40"></textarea><br />
+            <br />
+          </div>
+
+        </div>
+
+        <div id = "div-public-room" style = "display: none ;">
+        </div>
+      </div>
+    </div>
+    <p id = "result"></p>
+  </body>
+</html>

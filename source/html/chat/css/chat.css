@@ -1,0 +1,288 @@
+
+.theme-light
+{
+  --color-primary: #000 ;
+  --bgcolor-primary: #ffffff ;
+
+  --color-second: #111 ;
+  --bgcolor-second: #eee ;
+
+  --bgcolor-third: #ccc ;
+  
+
+  --color-message-time: #666 ;
+
+  --bgcolor-text-editor: #fff ;
+}
+
+.theme-dark
+{
+  --color-primary: #eee ;
+  --bgcolor-primary: #000 ;
+
+  --color-second: #ddd ;
+  --bgcolor-second: #222 ;
+
+  --bgcolor-third: #444 ;
+
+
+  --color-message-time: #a8aab1 ;
+
+  --bgcolor-text-editor: #bbb ;
+}
+
+
+
+
+body
+{
+  color: var(--color-primary) ;
+  background-color: var(--bgcolor-primary) ;
+}
+
+body, button, input
+{
+  font-size: 2rem ;
+}
+
+.h1-title
+{
+  width: 1440px ;
+  margin: auto ;
+}
+
+.wrap
+{
+  display: flex ;
+  width: 1440px ;
+  margin: auto ;
+}
+
+.menu-list
+{
+  width: 200px ;
+}
+
+#main-frame
+{
+  margin-top: 5px ;
+  margin-left: 15px ;
+  margin-bottom: 5px ;
+  color: var(--color-second) ;
+  background-color: var(--bgcolor-second) ;
+  width: 1220px ;
+}
+
+#div-account-setting
+{
+  margin: 10px 15px ;
+}
+
+#side-section
+{
+  width: 7% ;
+}
+
+.account-setting-edit-button, .account-setting-save-button, .account-setting-cancel-button
+{
+  padding: 15px 15px ;
+  text-align: center ;
+  margin: 4px 2px ;
+  cursor: pointer ;
+
+  background-color: #EA4C89 ; // red
+  color: #000 ;
+  border: 2px solid #000 ;
+}
+
+.button, .button-not-selected, .button-selected, .button-back
+{
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem ;
+  margin-top: 5px ;
+  margin-bottom: 15px ;
+  cursor: pointer;
+  width: 200px;
+  display: block;
+}
+
+.button-selected
+{
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  border-radius: 25px ;
+}
+
+.button-not-selected
+{
+  background-color: #4D4AE8; /* gray */
+  border: 1px solid #adb1b8;
+}
+
+.button-back
+{
+  background-color: #31b0d5;
+  border: 1px solid #269abc;
+}
+
+#edit-nickname
+{
+  background-color: var(--bgcolor-text-editor) ;
+}
+
+#edit-description
+{
+  font-size: 2rem ;
+  vertical-align: top ;
+}
+
+
+
+
+
+
+
+#public-room-message-editor
+{
+  margin-left: 15px ;
+  font-size: 2rem ;
+  background-color: var(--bgcolor-text-editor) ;
+  resize: none ;
+}
+
+#public-room-message-display
+{
+  width: 100% ;
+  height: 700px ;
+  margin-left: auto ;
+  margin-right: auto ;
+  overflow-y: scroll ;
+}
+
+#public-room-controller
+{
+  display: flex ;
+  padding-top: 10px ;
+  padding-bottom: 10px ;
+  background-color: var(--bgcolor-third) ;
+}
+
+.public-room-send-message-button
+{
+  margin-left: 15px ;
+  width: 200px ;
+  height: 60px ;
+}
+
+
+
+
+
+.message-sent-from
+{
+  font-size: 1.5rem ;
+  
+}
+
+.message-time
+{
+  font-size: 1.5rem ;
+  color: var(--color-message-time) ;
+}
+
+
+
+.single-message-title
+{
+  margin-left: 1vh ;
+}
+
+.single-message-title-align-right
+{
+  text-align: right ;
+  margin-right: 1vh ;
+}
+
+.single-message-block
+{
+  width: 97% ;
+  margin-bottom: 25px ;
+  margin-left: 1vh ;
+}
+
+.single-message-block-align-right
+{
+  width: 97% ;
+  margin-left: auto ;
+  margin-right: 1vh ;
+  margin-bottom: 25px ;
+}
+
+.message-arrow
+{
+  border-left: 1vh solid transparent ;
+  border-right: 1vh solid transparent ;
+  border-top: 0vh solid transparent ;
+  border-bottom: 1.5vh solid #4CAF50 ;
+  position: relative ;
+  top: -3.5vh ;
+  left: 3.5vh ;
+}
+
+.message-content
+{
+  border-radius: 15px ;
+  background-color: #4CAF50 ;
+  width: 80% ;
+  padding: 18px 20px ;
+  margin-top: -2.1vh ;
+  color: #eee ;
+  
+  overflow-wrap: break-word ;
+}
+
+.align-right
+{
+  text-align: right ;
+}
+
+.message-arrow-align-right
+{
+  border-left: 1vh solid transparent ;
+  border-right: 1vh solid transparent ;
+  border-top: 0vh solid transparent ;
+  border-bottom: 1.5vh solid #555 ;
+  position: relative ;
+  top: -3.5vh ;
+  right: 3.5vh ;
+  z-index: 2 ;
+}
+
+.message-content-align-right
+{
+  border-radius: 15px ;
+  background-color: #555 ;
+  width: 80% ;
+  padding: 18px 20px ;
+  margin-top: -2.1vh ;
+  margin-left: auto ;
+  margin-right: 0px ;
+  color: #eee ;
+  
+  overflow-wrap: break-word ;
+}
+
+.button-message-delete
+{
+  font-size: 1.2rem ;
+  position: relative ; /* 設定 relative 讓 z-index 有效果 */
+  z-index: 3 ;
+}
+
+#div-csrf-token
+{
+  display: none ;
+}

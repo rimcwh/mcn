@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>lobby - mcn site</title>
+    <link rel = "stylesheet" href = "css/lobby.css">
+    <script src = "js/lobby.js"></script>
+  </head>
+  </head>
+  <body>
+    <h1 class = "h1-title">大廳</h1>
+    <div class = "menu-list">
+      <button class = "button" onclick = "nav_chat() ;">聊天室</button>
+      <button class = "button" onclick = "nav_shop() ;">書店</button>
+      <button class = "button" onclick = "nav_bingo() ;">線上賓果</button>
+      <button class = "button-logout" onclick = "logout_account()">登出</button>
+    </div>
+    <div id = "main-frame">
+      <div id = "show-account"></div>
+      <br />
+      <span id = "show-theme">啟用黑暗主題： </span>
+      <label class="switch">
+        <input type="checkbox" id = "checkbox-switch-theme" onclick = "switch_theme()">
+        <span class="slider round"></span>
+      </label>
+      <br />
+      <br />
+      <button id = "button-password-change" onclick = "clicked_password_change() ;">變更密碼</button>
+      <div id = "div-change-password">
+        變更密碼：<br />
+        <br />
+        <button id = "button-password-send" onclick = "clicked_password_send() ;">送出</button>
+        <button id = "button-password-cancel" onclick = "clicked_password_cancel() ;">取消</button><br />
+        <br />
+        舊密碼：<br />
+        <input type = "password" id = "input-change-password-old"><br />
+        <br />
+        新密碼：<br />
+        <input type = "password" id = "input-change-password-new"><br />
+        <br />
+        密碼確認：<br />
+        <input type = "password" id = "input-change-password-double-check"><br />
+
+      </div>
+      <br />
+      <br />
+      <div id = "show-email"></div>
+      <br />
+      <button id = "button-email-change" onclick = "clicked_email_change() ;">變更 E-mail</button>
+      <div id = "div-change-email">
+        <button id = "button-email-save" onclick = "clicked_email_save() ;">儲存</button>
+        <button id = "button-email-cancel" onclick = "clicked_email_cancel() ;">取消</button>
+        變更 E-mail: <input type = "text" id = "input-change-email" onfocusout = "focusout_change_email()">
+      </div>
+      <br />
+      <br />
+      <div id = "show-email-verified"></div>
+      <br />
+      <button id = "button-show-email-verified-wrap" onclick = "clicked_show_email_verified_wrap() ;">進行 E-mail 驗證</button>
+      <div id = "div-email-verified-wrap">
+        <button id = "button-send-verified-code-mail" onclick = "clicked_send_verified_code_mail() ;">發送驗證碼到信箱</button> <span id = "span-resend-remaining-time"></span><br />
+        <br />
+        驗證碼：<input type = "text" id = "input-verified-code"><br />
+        <br />
+        (英文與數字 8 碼，英文字母大寫小寫皆可。)<br />
+        <br />
+        <button id = "button-verified-email-address" onclick = "clicked_verified_email_address() ;">進行驗證</button><br />
+        <br />
+        <div id = "show-send-mail-error"></div>
+      </div>
+      <div id = "show-result"></div>
+    </div>
+    <div id = "div-csrf-token"></div>
+  </body>
+</html>

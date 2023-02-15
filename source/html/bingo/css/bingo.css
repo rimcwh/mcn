@@ -1,0 +1,1743 @@
+
+:root
+{
+  --my-shop-launched-books-column-book-info-width: 400px ;
+  --my-shop-launched-books-column-isbn-width: 300px ;
+  --my-shop-launched-books-column-change-detail-width: 200px ;
+  --my-shop-orders-list-column-order-id-width: 160px ;
+  --my-shop-orders-list-column-order-date-width: 300px ;
+  --my-shop-orders-list-column-name-width: 150px ;
+  --my-shop-orders-list-column-tel-width: 180px ;
+  --my-shop-orders-list-column-address-width: 300px ;
+  --my-shop-orders-list-column-book-id-width: 160px ;
+  --my-shop-orders-list-column-book-isbn-width: 300px ;
+  --my-shop-orders-list-column-book-title-width: 280px ;
+  --my-shop-orders-list-column-price-width: 150px ;
+  --my-shop-orders-list-column-number-width: 120px ;
+  --my-shop-orders-list-column-sum-width: 190px ;
+}
+
+.theme-light
+{
+  --color-primary: #000 ;
+  --bgcolor-primary: #ffffff ;
+  
+  --color-second: #111 ;
+  --bgcolor-second: #eee ;
+  
+  --bgcolor-text-editor: #ffffff ;
+  
+  --bgcolor-checkbox: #888 ;
+  --bgcolor-checkbox-hover: #bbb ;
+  
+  --color-outer-border: #999 ;
+
+  --bgcolor-player-info: #fff ;
+
+  --color-leader-flag: #CC0066 ;
+  --color-self-flag: #CC0066 ;
+
+  --color-grid-cell-normal: #111 ;
+  --color-grid-cell-picked: #777 ;
+  --color-grid-cell-temp-picked-border: #CC0066 ;
+
+  --bgcolor-rooms-list-single-item: #bbb ;
+
+  --bgcolor-game-ongoing: rgba(255, 255, 255, 1) ;
+  --bgcolor-game-checking: rgba(255, 255, 255, 1) ;
+
+  --color-game-ongoing-info-status: #00B000 ;
+}
+
+.theme-dark
+{
+  --color-primary: #eee ;
+  --bgcolor-primary: #000 ;
+  
+  --color-second: #ddd ;
+  --bgcolor-second: #222 ;
+  
+  
+  --bgcolor-text-editor: #bbb ;
+  
+  --bgcolor-checkbox: #666 ;
+  --bgcolor-checkbox-hover: #aaa ;
+  
+  --color-outer-border: #666 ;
+
+  --bgcolor-player-info: #000 ;
+
+  --color-leader-flag: #ed8200 ;
+  --color-self-flag: #ed8200 ;
+
+  --color-grid-cell-normal: #ddd ;
+  --color-grid-cell-picked: #777 ;
+  --color-grid-cell-temp-picked-border: #ed8200 ;
+
+  --bgcolor-rooms-list-single-item: #444 ;
+
+  --bgcolor-game-ongoing: rgba(0, 0, 0, 1) ;
+  --bgcolor-game-checking: rgba(0, 0, 0, 1) ;
+
+  --color-game-ongoing-info-status: #00B000 ;
+}
+
+
+
+
+
+
+/* The container */
+.checkbox-container
+{
+  display: block ;
+  position: relative ;
+  padding-left: 35px ;
+  margin-bottom: 12px ;
+  cursor: pointer ;
+  //font-size: 22px ;
+  font-size: 2rem ;
+  -webkit-user-select: none ;
+  -moz-user-select: none ;
+  -ms-user-select: none ;
+  user-select: none ;
+  
+  top: 10px ;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input
+{
+  position: absolute ;
+  opacity: 0 ;
+  cursor: pointer ;
+  height: 0 ;
+  width: 0 ;
+}
+
+/* Create a custom checkbox */
+.checkmark
+{
+  position: absolute ;
+  top: 0 ;
+  left: 0 ;
+  //height: 25px ;
+  //width: 25px ;
+  height: 2rem ;
+  width: 2rem ;
+  background-color: var(--bgcolor-checkbox) ;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark
+{
+  background-color: var(--bgcolor-checkbox-hover) ;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark
+{
+  background-color: #2196F3 ;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after
+{
+  content: "" ;
+  position: absolute ;
+  display: none ;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after
+{
+  display: block ;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after
+{
+  //left: 9px ;
+  left: 12px ;
+  //top: 5px ;
+  top: 6px ;
+  //width: 5px ;
+  width: 6px ;
+  //height: 10px ;
+  height: 13px ;
+  border: solid white ;
+  //border-width: 0 3px 3px 0 ;
+  border-width: 0 4px 4px 0 ;
+  -webkit-transform: rotate(45deg) ;
+  -ms-transform: rotate(45deg) ;
+  transform: rotate(45deg) ;
+}
+
+
+
+
+
+.label-radio-container
+{
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  //font-size: 22px;
+  font-size: 2rem ;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.label-radio-container input
+{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radio-checkmark
+{
+  position: absolute;
+  //top: 0;
+  top: 5px ;
+  left: 0;
+  //height: 25px;
+  //width: 25px;
+  //background-color: #eee;
+  height: 2rem ;
+  width: 2rem ;
+  background-color: var(--bgcolor-checkbox) ;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.label-radio-container:hover input ~ .radio-checkmark
+{
+  //background-color: #ccc;
+  background-color: var(--bgcolor-checkbox-hover) ;
+}
+
+/* When the radio button is checked, add a blue background */
+.label-radio-container input:checked ~ .radio-checkmark
+{
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-checkmark:after
+{
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.label-radio-container input:checked ~ .radio-checkmark:after
+{
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.label-radio-container .radio-checkmark:after
+{
+  //top: 9px;
+  //left: 9px;
+  top: 11px ;
+  left: 11px ;
+  //width: 8px;
+  //height: 8px;
+  width: 10px ;
+  height: 10px ;
+  border-radius: 50%;
+  background: white;
+}
+
+
+
+
+
+
+body
+{
+  color: var(--color-primary) ;
+  background-color: var(--bgcolor-primary) ;
+}
+
+body, button, input, textarea
+{
+  font-size: 2rem ;
+}
+
+.h1-title
+{
+  width: 1440px ;
+  margin: auto ;
+}
+
+.wrap
+{
+  display: flex ;
+  width: 1440px ;
+  margin: auto ;
+}
+
+.menu-list
+{
+  width: 200px ;
+}
+
+#main-frame
+{
+  margin-top: 5px ;
+  margin-left: 15px ;
+  margin-bottom: 5px ;
+  color: var(--color-second) ;
+  background-color: var(--bgcolor-second) ;
+  width: 1220px ;
+}
+
+#side-section
+{
+  width: 7% ;
+}
+
+
+
+
+
+
+.button-selected {
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  border-radius: 25px ;
+}
+
+.button-not-selected {
+  background-color: #4D4AE8; /* gray */
+  border: 1px solid #adb1b8;
+}
+
+.button-back {
+  background-color: #31b0d5;
+  border: 1px solid #269abc;
+}
+
+
+
+.button-back, #button-rooms-list, #button-history-record-list
+{
+  text-decoration: none ;
+  color: white ;
+  font-size: 2rem ;
+  text-align: center ;
+  cursor: pointer ;
+}
+
+.button-back, #button-rooms-list, #button-history-record-list
+{
+  padding: 15px 15px ;
+  margin-top: 5px ;
+  margin-bottom: 15px ;
+  width: 200px ;
+}
+
+#edit-description {
+  font-size: 2rem ;
+  vertical-align: top ;
+}
+
+
+
+
+
+
+
+
+#div-rooms-list
+{
+  padding-left: 20px ;
+  padding-right: 20px ;
+  padding-top: 20px ;
+  padding-bottom: 20px ;
+}
+
+.rooms-list-single-item
+{
+  display: inline-block ;
+  color: var(--color-second) ;
+  background-color: var(--bgcolor-rooms-list-single-item) ;
+  margin-top: 19px ;
+  margin-bottom: 19px ;
+  margin-left: 19px ;
+  margin-right: 19px ;
+  padding: 10px ;
+  width: 328px ;
+  height: 166px ;
+  border: 1px solid var(--color-primary) ;
+}
+
+.show-room-id
+{
+  display: inline-block ;
+}
+
+.show-private-status
+{
+  display: inline-block ;
+  margin-top: 20px ;
+}
+
+.show-bingo-size
+{
+  display: inline-block ;
+  margin-top: 20px ;
+  margin-left: 20px ;
+}
+
+.show-room-status
+{
+  display: inline-block ;
+  margin-top: 20px ;
+}
+
+.show-attendance
+{
+  display: inline-block ;
+  margin-top: 20px ;
+  margin-left: 20px ;
+}
+
+.rooms-list-button-wrap
+{
+  display: flex ;
+  //justify-content: space-around ;
+  justify-content: center ;
+}
+
+.rooms-list-page-wrap
+{
+  display: flex ;
+  justify-content: center ;
+}
+
+#button-create-room, #button-join-room
+{
+  padding-top: 15px ;
+  padding-bottom: 15px ;
+  padding-left: 20px ;
+  padding-right: 20px ;
+  margin-left: 60px ;
+  margin-right: 60px ;
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+}
+
+#button-first-page, #button-last-page, #button-next-page, #button-previous-page
+{
+  padding-top: 5px ;
+  padding-bottom 5px ;
+  padding-left: 10px ;
+  padding-right: 10px ;
+  margin-left: 30px ;
+  margin-right: 30px ;
+  margin-top: 25px ;
+  margin-bottom: 10px ;
+}
+
+.show-current-page
+{
+  display: inline-block ;
+  margin-left: 60px ;
+  margin-right: 60px ;
+  padding-top: 32px ;
+  text-align: center ;
+  width: 200px ;
+}
+
+#div-rooms-list-status-info-overlay
+{
+  position: fixed ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: rgba(0,0,0,0.5) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#div-rooms-list-status-info-poparea
+{
+  background-color: var(--bgcolor-second) ;
+  position: absolute ;
+  width: 30% ;
+  height: 30% ;
+  top: 35% ;
+  left: 35% ;
+  //overflow-y: scroll ;
+  border: 3px solid ;
+}
+
+#div-rooms-list-status-info-poparea-text
+{
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+  text-align: center ;
+}
+
+.div-input-room-password-wrap
+{
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+  text-align: center ;
+}
+
+#input-room-password
+{
+  width: 220px ;
+  background-color: var(--bgcolor-text-editor) ;
+}
+
+.div-button-room-password-confirm-wrap
+{
+  margin-top: 40px ;
+  margin-bottom: 20px ;
+  text-align: center ;
+}
+
+#button-room-confirm-password-no
+{
+  position: absolute ;
+  left: 50px ;
+  padding: 10px 10px ;
+}
+
+#button-room-confirm-password-yes
+{
+  padding: 10px 20px ;
+}
+
+#div-room-detail-overlay
+{
+  position: fixed ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: rgba(0,0,0,0.8) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#div-room-detail-poparea
+{
+  background-color: var(--bgcolor-second) ;
+  position: absolute ;
+  //width: 70% ;
+  width: 1344px ;
+  height: 70% ;
+  top: 15% ;
+  left: 15% ;
+  //overflow-y: scroll ;
+  border: 1px solid ;
+}
+
+#div-room-detail-room-number
+{
+  margin-top: 10px ;
+  margin-bottom: 20px ;
+  text-align: center ;
+}
+
+#div-room-detail-players-wrap
+{
+  display: flex ;
+  justify-content: center ;
+}
+
+#div-room-detail-player1-info, #div-room-detail-player2-info, #div-room-detail-player3-info, #div-room-detail-player4-info
+{
+  width: 200px ;
+  background-color: var(--bgcolor-player-info) ;
+  margin-left: 20px ;
+  margin-right: 20px ;
+  padding: 10px ;
+  border: 1px solid ;
+}
+
+#div-room-detail-player1-info-leader-flag, #div-room-detail-player2-info-leader-flag, #div-room-detail-player3-info-leader-flag, #div-room-detail-player4-info-leader-flag
+{
+  text-align: center ;
+  color: var(--color-leader-flag) ;
+}
+
+.div-room-detail-player-label
+{
+  text-align: center ;
+}
+
+#div-room-detail-player1-info-id, #div-room-detail-player2-info-id, #div-room-detail-player3-info-id, #div-room-detail-player4-info-id
+{
+  text-align: center ;
+  overflow-x:hidden ;
+}
+
+#div-room-detail-player1-info-status, #div-room-detail-player2-info-status, #div-room-detail-player3-info-status, #div-room-detail-player4-info-status
+{
+  text-align: center ;
+}
+
+#div-room-detail-player1-info-status, #div-room-detail-player2-info-status, #div-room-detail-player3-info-status, #div-room-detail-player4-info-status
+{
+  color: #00B000 ;
+}
+
+#input-room-detail-password
+{
+  background-color: var(--bgcolor-text-editor) ;
+  width: 200px ;
+  margin-right: 20px ;
+}
+
+.div-room-detail-attribute-A
+{
+  display: flex ;
+  margin: 20px 0 0 0 ;
+}
+
+.div-room-detail-privacy-area
+{
+  width: 50% ;
+}
+
+#div-room-detail-privacy-option
+{
+  display: none ;
+}
+
+.div-room-detail-input-radio-privacy-container
+{
+  width: 37% ;
+  margin: auto ;
+}
+
+#div-room-detail-privacy-text
+{
+  display: none ;
+  text-align: center ;
+}
+
+.div-room-detail-password-area-reserved
+{
+  height: 48px ;
+}
+
+#div-room-detail-password-area-container
+{
+  display: none ;
+  text-align: center ;
+}
+
+.div-room-detail-bingo-size-area
+{
+  width: 20% ;
+}
+
+#div-room-detail-bingo-size-option
+{
+  display: none ;
+}
+
+.div-room-detail-input-radio-bingo-size-container
+{
+  /*width: 37% ;
+  margin: auto ;*/
+}
+
+#div-room-detail-bingo-size-text
+{
+  display: none ;
+  text-align: center ;
+}
+
+.div-room-detail-attendance-area
+{
+  width: 30% ;
+}
+
+#div-room-detail-max-attendance-option
+{
+  display: none ;
+}
+
+.div-room-detail-input-radio-max-attendance-container
+{
+  width: 70% ;
+  margin: auto ;
+}
+
+#div-room-detail-attendance-text
+{
+  width: 70% ;
+  margin: auto ;
+}
+
+#button-room-detail-leave-room
+{
+  position: absolute ;
+  left: 5% ;
+}
+
+.button-wrap
+{
+  width: 100% ;
+  text-align: center ;
+}
+
+#button-room-detail-get-ready
+{
+  display: inline-block ;
+}
+
+#button-room-detail-not-ready
+{
+  display: none ;
+}
+
+#button-room-detail-start-now
+{
+  display: none ;
+  position: absolute ;
+  right: 5% ;
+}
+
+#div-game-ongoing-overlay
+{
+  position: /*fixed*/absolute ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: var(--bgcolor-game-ongoing) ; /* Black background with opacity */
+  z-index: 2 ; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#div-game-ongoing-extra-info
+{
+  display: none ;
+}
+
+#div-game-ongoing-determine-grid-players-wrap
+{
+  display: flex ;
+  justify-content: center ;
+}
+
+.div-game-ongoing-determine-grid-title
+{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#div-game-ongoing-determine-grid-player1-info, #div-game-ongoing-determine-grid-player2-info, #div-game-ongoing-determine-grid-player3-info, #div-game-ongoing-determine-grid-player4-info
+{
+  width: 200px ;
+  background-color: var(--bgcolor-player-info) ;
+  margin-left: 20px ;
+  margin-right: 20px ;
+  padding: 10px ;
+  border: 1px solid ;
+}
+
+#div-game-ongoing-determine-grid-player1-info-self-flag, #div-game-ongoing-determine-grid-player2-info-self-flag, #div-game-ongoing-determine-grid-player3-info-self-flag, #div-game-ongoing-determine-grid-player4-info-self-flag
+{
+  text-align: center ;
+  color: var(--color-self-flag) ;
+}
+
+.div-game-ongoing-determine-grid-player-label
+{
+  text-align: center ;
+}
+
+#div-game-ongoing-determine-grid-player1-info-id, #div-game-ongoing-determine-grid-player2-info-id, #div-game-ongoing-determine-grid-player3-info-id, #div-game-ongoing-determine-grid-player4-info-id
+{
+  text-align: center ;
+  overflow-x:hidden ;
+}
+
+#div-game-ongoing-determine-grid-player1-info-status, #div-game-ongoing-determine-grid-player2-info-status, #div-game-ongoing-determine-grid-player3-info-status, #div-game-ongoing-determine-grid-player4-info-status
+{
+  text-align: center ;
+  color: #00B000 ;
+}
+
+#div-game-ongoing-determine-grid-size-5-wrap, #div-game-ongoing-determine-grid-size-6-wrap
+{
+  display: none ;
+  margin-top: 30px ;
+}
+
+.table-game-ongoing-determine-grid
+{
+  border-collapse: collapse ;
+  margin: auto ;
+}
+
+.table-game-ongoing-determine-grid td
+{
+  width: 90px ;
+  height: 90px ;
+  border: 1px solid ;
+  font-size: 3rem ;
+  text-align: center ;
+}
+
+.div-game-ongoing-determine-grid-size-5-row-wrap
+{
+  text-align: center ;
+}
+
+.span-game-ongoing-determine-grid-size-5-cell
+{
+  display: inline-block ;
+  width: 100px ;
+  height: 100px ;
+  border: 1px solid ;
+  margin: 0 ;
+}
+
+#button-round-ongoing-random-grid
+{
+}
+
+.div-game-ongoing-determine-grid-info-panel
+{
+  position: absolute ;
+  padding-top: 40px ;
+  padding-left: 40px ;
+}
+
+#div-game-ongoing-determine-grid-text-A
+{
+
+}
+
+#div-game-ongoing-main
+{
+  display: none ;
+}
+
+#div-game-ongoing-main-title
+{
+  margin-top: 10px ;
+  margin-bottom: 20px ;
+  text-align: center ;
+}
+
+#div-game-ongoing-grid-size-5-wrap, #div-game-ongoing-grid-size-6-wrap
+{
+  display: none ;
+  position: relative ;
+  text-align: center ;
+}
+
+.table-game-ongoing-grid
+{
+  border-collapse: collapse ;
+  margin: auto ;
+}
+
+.table-game-ongoing-grid td
+{
+  width: 90px ;
+  height: 90px ;
+  border: 1px solid ;
+  font-size: 3rem ;
+  text-align: center ;
+  position: relative ;
+  padding: 0 ;
+}
+
+#div-game-ongoing-main-players-wrap
+{
+  display: flex ;
+  justify-content: center ;
+  margin-top: 40px ;
+}
+
+#div-game-ongoing-main-player1-info, #div-game-ongoing-main-player2-info, #div-game-ongoing-main-player3-info, #div-game-ongoing-main-player4-info
+{
+  width: 200px ;
+  background-color: var(--bgcolor-player-info) ;
+  margin-left: 20px ;
+  margin-right: 20px ;
+  padding: 10px ;
+  border: 1px solid ;
+}
+
+#div-game-ongoing-main-player1-info-self-flag, #div-game-ongoing-main-player2-info-self-flag, #div-game-ongoing-main-player3-info-self-flag, #div-game-ongoing-main-player4-info-self-flag
+{
+  text-align: center ;
+  color: var(--color-self-flag) ;
+}
+
+.div-game-ongoing-main-player-label
+{
+  text-align: center ;
+}
+
+#div-game-ongoing-main-player1-info-id, #div-game-ongoing-main-player2-info-id, #div-game-ongoing-main-player3-info-id, #div-game-ongoing-main-player4-info-id
+{
+  text-align: center ;
+  overflow-x:hidden ;
+}
+
+#div-game-ongoing-main-player1-info-status, #div-game-ongoing-main-player2-info-status, #div-game-ongoing-main-player3-info-status, #div-game-ongoing-main-player4-info-status
+{
+  text-align: center ;
+  color: var(--color-game-ongoing-info-status) ;
+}
+
+.div-game-ongoing-info-panel
+{
+  position: absolute ;
+  padding-top: 40px ;
+  padding-left: 40px ;
+  z-index: 1 ;
+}
+
+#div-game-ongoing-text-A
+{
+  
+}
+
+#div-game-ongoing-text-B
+{
+  
+}
+
+#button-round-ongoing-main-back-to-room
+{
+  display: none ;
+}
+
+#button-round-ongoing-main-checking
+{
+  display: none ;
+  margin-top: 60px ;
+}
+
+.span-decorated-game-ongoing-grid-cell
+{
+  display: none ;
+  position: absolute ;
+  width: 82px ;
+  height: 82px ;
+  left: 1px ;
+  top: 1px ;
+  border: 3px solid #00b000 ;
+  border-radius: 50% ;
+}
+
+#span-grid-size-5-line-row-0
+{
+  display: none ;
+  position: absolute ;
+  width: 486px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 44px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-row-1
+{
+  display: none ;
+  position: absolute ;
+  width: 486px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 135px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-row-2
+{
+  display: none ;
+  position: absolute ;
+  width: 486px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 226px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-row-3
+{
+  display: none ;
+  position: absolute ;
+  width: 486px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 317px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-row-4
+{
+  display: none ;
+  position: absolute ;
+  width: 486px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 408px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-col-0
+{
+  display: none ;
+  position: absolute ;
+  height: 486px ;
+  border-left: 5px solid #CC0066 ;
+  left: 44px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-col-1
+{
+  display: none ;
+  position: absolute ;
+  height: 486px ;
+  border-left: 5px solid #CC0066 ;
+  left: 135px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-col-2
+{
+  display: none ;
+  position: absolute ;
+  height: 486px ;
+  border-left: 5px solid #CC0066 ;
+  left: 226px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-col-3
+{
+  display: none ;
+  position: absolute ;
+  height: 486px ;
+  border-left: 5px solid #CC0066 ;
+  left: 317px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-col-4
+{
+  display: none ;
+  position: absolute ;
+  height: 486px ;
+  border-left: 5px solid #CC0066 ;
+  left: 408px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-cross-a
+{
+  display: none ;
+  position:absolute ;
+  width: 681px ;
+  border-top: 5px solid #CC0066 ;
+  transform: rotate(45deg) ;
+  top: 225px ;
+  left: -113px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-5-line-cross-b
+{
+  display: none ;
+  position:absolute ;
+  width: 681px ;
+  border-top: 5px solid #CC0066 ;
+  transform: rotate(135deg) ;
+  top: 225px ;
+  left: -112px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-row-0
+{
+  display: none ;
+  position: absolute ;
+  width: 577px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 44px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-row-1
+{
+  display: none ;
+  position: absolute ;
+  width: 577px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 135px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-row-2
+{
+  display: none ;
+  position: absolute ;
+  width: 577px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 226px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-row-3
+{
+  display: none ;
+  position: absolute ;
+  width: 577px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 317px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-row-4
+{
+  display: none ;
+  position: absolute ;
+  width: 577px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 408px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-row-5
+{
+  display: none ;
+  position: absolute ;
+  width: 577px ;
+  border-top: 5px solid #CC0066 ;
+  left: -15px ;
+  top: 499px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-col-0
+{
+  display: none ;
+  position: absolute ;
+  height: 577px ;
+  border-left: 5px solid #CC0066 ;
+  left: 44px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-col-1
+{
+  display: none ;
+  position: absolute ;
+  height: 577px ;
+  border-left: 5px solid #CC0066 ;
+  left: 135px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-col-2
+{
+  display: none ;
+  position: absolute ;
+  height: 577px ;
+  border-left: 5px solid #CC0066 ;
+  left: 226px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-col-3
+{
+  display: none ;
+  position: absolute ;
+  height: 577px ;
+  border-left: 5px solid #CC0066 ;
+  left: 317px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-col-4
+{
+  display: none ;
+  position: absolute ;
+  height: 577px ;
+  border-left: 5px solid #CC0066 ;
+  left: 408px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-col-5
+{
+  display: none ;
+  position: absolute ;
+  height: 577px ;
+  border-left: 5px solid #CC0066 ;
+  left: 499px ;
+  top: -15px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-cross-a
+{
+  display: none ;
+  position:absolute ;
+  width: 809px ;
+  border-top: 5px solid #CC0066 ;
+  transform: rotate(45deg) ;
+  top: 271px ;
+  left: -131px ;
+  z-index: 1 ;
+}
+
+#span-grid-size-6-line-cross-b
+{
+  display: none ;
+  position:absolute ;
+  width: 809px ;
+  border-top: 5px solid #CC0066 ;
+  transform: rotate(135deg) ;
+  top: 271px ;
+  left: -131px ;
+  z-index: 1 ;
+}
+
+.div-game-ongoing-grid-wrap
+{
+  position: relative ;
+  display: inline-block ;
+}
+
+.div-game-checking-info-area-A
+{
+  position: absolute ;
+  left: 200px ;
+  margin-top: 10px ;
+}
+
+.div-game-checking-info-area-B
+{
+  position: absolute ;
+  right: 200px ;
+  margin-top: 10px ;
+}
+
+#div-game-checking-self-grid-area
+{
+  text-align: center ;
+  margin-top: 10px ;
+}
+
+#div-game-checking-self-grid-size-5-wrap, #div-game-checking-self-grid-size-6-wrap
+{
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+}
+
+#div-game-checking-other-player-A-grid-size-5-wrap, #div-game-checking-other-player-A-grid-size-6-wrap, #div-game-checking-other-player-B-grid-size-5-wrap, #div-game-checking-other-player-B-grid-size-6-wrap, #div-game-checking-other-player-C-grid-size-5-wrap, #div-game-checking-other-player-C-grid-size-6-wrap
+{
+  margin: 20px ;
+}
+
+.span-game-checking-grid-size-5-line-row-0
+{
+  display: none ;
+  position: absolute ;
+  width: 326px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 30px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-row-1
+{
+  display: none ;
+  position: absolute ;
+  width: 326px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 91px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-row-2
+{
+  display: none ;
+  position: absolute ;
+  width: 326px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 152px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-row-3
+{
+  display: none ;
+  position: absolute ;
+  width: 326px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 213px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-row-4
+{
+  display: none ;
+  position: absolute ;
+  width: 326px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 274px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-col-0
+{
+  display: none ;
+  position: absolute ;
+  height: 326px ;
+  border-left: 3px solid #CC0066 ;
+  left: 30px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-col-1
+{
+  display: none ;
+  position: absolute ;
+  height: 326px ;
+  border-left: 3px solid #CC0066 ;
+  left: 91px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-col-2
+{
+  display: none ;
+  position: absolute ;
+  height: 326px ;
+  border-left: 3px solid #CC0066 ;
+  left: 152px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-col-3
+{
+  display: none ;
+  position: absolute ;
+  height: 326px ;
+  border-left: 3px solid #CC0066 ;
+  left: 213px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-col-4
+{
+  display: none ;
+  position: absolute ;
+  height: 326px ;
+  border-left: 3px solid #CC0066 ;
+  left: 274px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-cross-a
+{
+  display: none ;
+  position:absolute ;
+  width: 457px ;
+  border-top: 3px solid #CC0066 ;
+  transform: rotate(45deg) ;
+  top: 151px ;
+  left: -76px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-5-line-cross-b
+{
+  display: none ;
+  position:absolute ;
+  width: 457px ;
+  border-top: 3px solid #CC0066 ;
+  transform: rotate(135deg) ;
+  top: 151px ;
+  left: -75px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-row-0
+{
+  display: none ;
+  position: absolute ;
+  width: 387px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 30px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-row-1
+{
+  display: none ;
+  position: absolute ;
+  width: 387px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 91px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-row-2
+{
+  display: none ;
+  position: absolute ;
+  width: 387px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 152px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-row-3
+{
+  display: none ;
+  position: absolute ;
+  width: 387px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 213px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-row-4
+{
+  display: none ;
+  position: absolute ;
+  width: 387px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 274px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-row-5
+{
+  display: none ;
+  position: absolute ;
+  width: 387px ;
+  border-top: 3px solid #CC0066 ;
+  left: -10px ;
+  top: 335px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-col-0
+{
+  display: none ;
+  position: absolute ;
+  height: 387px ;
+  border-left: 3px solid #CC0066 ;
+  left: 30px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-col-1
+{
+  display: none ;
+  position: absolute ;
+  height: 387px ;
+  border-left: 3px solid #CC0066 ;
+  left: 91px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-col-2
+{
+  display: none ;
+  position: absolute ;
+  height: 387px ;
+  border-left: 3px solid #CC0066 ;
+  left: 152px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-col-3
+{
+  display: none ;
+  position: absolute ;
+  height: 387px ;
+  border-left: 3px solid #CC0066 ;
+  left: 213px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-col-4
+{
+  display: none ;
+  position: absolute ;
+  height: 387px ;
+  border-left: 3px solid #CC0066 ;
+  left: 274px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-col-5
+{
+  display: none ;
+  position: absolute ;
+  height: 387px ;
+  border-left: 3px solid #CC0066 ;
+  left: 335px ;
+  top: -10px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-cross-a
+{
+  display: none ;
+  position:absolute ;
+  width: 543px ;
+  border-top: 3px solid #CC0066 ;
+  transform: rotate(45deg) ;
+  top: 182px ;
+  left: -88px ;
+  z-index: 1 ;
+}
+
+.span-game-checking-grid-size-6-line-cross-b
+{
+  display: none ;
+  position:absolute ;
+  width: 543px ;
+  border-top: 3px solid #CC0066 ;
+  transform: rotate(135deg) ;
+  top: 182px ;
+  left: -88px ;
+  z-index: 1 ;
+}
+
+#div-game-checking-other-grid-area
+{
+  text-align: center ;
+}
+
+.div-game-checking-single-other-grid-wrap
+{
+  display: inline-block ;
+  text-align: center ;
+}
+
+#div-game-checking-other-player-A-grid-title, #div-game-checking-other-player-B-grid-title, #div-game-checking-other-player-C-grid-title
+{
+  white-space: nowrap ;
+  padding-left: 20px ;
+  width: 306px ;
+  overflow-x: hidden ;
+}
+
+#div-game-checking-overlay
+{
+  position: absolute ; /* Sit on top of the page content */
+  display: none ; /* Hidden by default */
+  width: 100% ; /* Full width (cover the whole page) */
+  height: 100% ; /* Full height (cover the whole page) */
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  background-color: var(--bgcolor-game-checking) ; /* Black background with opacity */
+  z-index: 3 ; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+.div-game-checking-grid-wrap
+{
+  position: relative ;
+  display: inline-block ;
+}
+
+.table-game-checking-grid
+{
+  border-collapse: collapse ;
+  margin: auto ;
+}
+
+.table-game-checking-grid td
+{
+  width: 60px ;
+  height: 60px ;
+  border: 1px solid ;
+  font-size: 2rem ;
+  text-align: center ;
+  position: relative ;
+  padding: 0 ;
+}
+
+.span-decorated-game-checking-grid-cell
+{
+  display: none ;
+  position: absolute ;
+  width: 52px ;
+  height: 52px ;
+  left: 1px ;
+  top: 1px ;
+  border: 3px solid #00ff00 ;
+  border-radius: 50% ;
+}
+
+#div-game-checking-record
+{
+  font-size: 1.5rem ;
+  display: inline-block ;
+  overflow-y: scroll ;
+  width: 360px ;
+  height: 320px ;
+  border: 1px solid ;
+  padding-left: 10px ;
+  padding-right: 10px ;
+}
+
+.div-game-checking-button-wrap-A
+{
+  display: inline-block ;
+  vertical-align: top ;
+  margin-left: 20px ;
+}
+
+#div-game-checking-counting-linking-line
+{
+  display: inline-block ;
+  width: 300px ;
+  height: 320px ;
+  border: 1px solid ;
+  padding-left: 10px ;
+  padding-right: 10px ;
+}
+
+.div-game-checking-button-wrap-B
+{
+  display: inline-block ;
+  vertical-align: top ;
+  margin-right: 20px ;
+}
+
+#div-history-record-list-title
+{
+  display: none ;
+  text-align: center ;
+  margin-top: 20px ;
+}
+
+.span-history-record-list-title-A
+{
+  display: inline-block ;
+  width: 80px ;
+  margin-left: 20px ;
+}
+
+.span-history-record-list-title-B
+{
+  display: inline-block ;
+  width: 263px ;
+}
+
+#div-history-record-list-none-data
+{
+  display: none ;
+  text-align: center ;
+  margin-top: 20px ;
+}
+
+#ul-history-record-list
+{
+  display: none ;
+  list-style-type: none ;
+  text-align: center ;
+}
+
+.li-history-record-list-single-item
+{
+  margin-left: auto ;
+  margin-right: auto ;
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+}
+
+.button-history-record-list-single-item
+{
+  display: inline-block ;
+  margin-right: 20px ;
+}
+
+.span-history-record-list-single-item
+{
+  display: inline-block ;
+  width: 263px ;
+}
+
+#div-change-password-result
+{
+  color: #00B000 ;
+  text-align: left ;
+  margin-left: 30% ;
+}
+
+#div-csrf-token
+{
+  display: none ;
+}
+

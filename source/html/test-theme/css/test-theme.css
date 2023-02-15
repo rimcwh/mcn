@@ -1,0 +1,143 @@
+.theme-light
+{
+  --color-primary: #333 ;
+  --bgcolor-primary: #808080 ;
+
+  --color-second: #222 ;
+  --bgcolor-second: #AAA ;
+}
+
+.theme-dark
+{
+  --color-primary: #ffffff ;
+  --bgcolor-primary: #000000 ;
+
+  --color-second: #ddd ;
+  --bgcolor-second: #222 ;
+}
+
+
+
+
+
+body
+{
+  font-size: 2rem ;
+  color: var(--color-primary) ;
+  background-color: var(--bgcolor-primary) ;
+}
+
+.wrap
+{
+  display: flex ;
+}
+
+button
+{
+  font-size: 2rem ;
+}
+
+.button, .button-not-selected, .button-selected, .button-back {
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem ;
+  margin-top: 5px ;
+  margin-bottom: 15px ;
+  cursor: pointer;
+  width: 200px;
+  display: block;
+}
+
+.button-selected {
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  border-radius: 25px ;
+}
+
+.button-not-selected {
+  background-color: #4D4AE8; /* gray */
+  border: 1px solid #adb1b8;
+}
+
+.button-back {
+  background-color: #31b0d5;
+  border: 1px solid #269abc;
+}
+
+.account-setting-edit-button, .account-setting-save-button, .account-setting-cancel-button {
+  padding: 15px 15px ;
+  text-align: center ;
+  margin: 4px 2px ;
+  cursor: pointer ;
+
+  background-color: #EA4C89 ; // red
+  color: #000 ;
+  border: 2px solid #000 ;
+}
+
+
+
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

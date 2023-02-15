@@ -1,0 +1,212 @@
+
+.theme-light
+{
+  --color-primary: #000 ;
+  --bgcolor-primary: #ffffff ;
+
+  --color-second: #111 ;
+  --bgcolor-second: #eee ;
+
+  --border-color: #000 ;
+}
+
+.theme-dark
+{
+  --color-primary: #eee ;
+  --bgcolor-primary: #000 ;
+
+  --color-second: #ddd ;
+  --bgcolor-second: #222 ;
+
+  --border-color: #fff ;
+}
+
+
+
+
+
+body
+{
+  color: var(--color-primary) ;
+  background-color: var(--bgcolor-primary) ;
+  width: 1440px ;
+  margin: auto ;
+
+}
+
+body, button, input
+{
+  font-size: 2rem ;
+}
+
+.h1-title
+{
+  width: 1440px ;
+  margin: auto ;
+}
+
+.wrap
+{
+  display: flex ;
+  width: 1440px ;
+  margin: auto ;
+}
+
+.menu-list
+{
+  width: 100% ;
+  margin: auto ;
+  display: float ;
+}
+
+#main-frame
+{
+  margin-top: 5px ;
+  //margin-left: 15px ;
+  margin-bottom: 5px ;
+  color: var(--color-second) ;
+  background-color: var(--bgcolor-second) ;
+  width: 100% ;
+  padding: 15px ;
+  box-sizing: border-box ;
+  clear: both ;
+}
+
+#side-section
+{
+  width: 7% ;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+.button, .button-not-selected, .button-selected, .button-logout {
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem ;
+  margin-top: 5px ;
+  margin-bottom: 15px ;
+  margin-right: 15px ;
+  cursor: pointer;
+  width: 200px;
+  //display: float ;
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+}
+
+.button-selected {
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  border-radius: 25px ;
+}
+
+.button-not-selected {
+  background-color: #4D4AE8; /* gray */
+  border: 1px solid #adb1b8;
+}
+
+.button-logout {
+  background-color: #31b0d5;
+  border: 1px solid #269abc;
+  margin-right: 0px ;
+  float: right ;
+}
+
+
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#button-email-change, #button-email-save, #button-email-cancel, #button-show-email-verified-wrap, #button-password-change, #button-password-send, #button-password-cancel
+{
+  padding: 15px 15px ;
+  text-align: center ;
+  margin: 4px 2px ;
+  cursor: pointer ;
+  background-color: #EA4C89 ;
+  color: #000 ;
+  border: 1px solid var(--border-color) ;
+}
+
+#button-email-cancel
+{
+  margin-right: 20px ;
+}
+
+#div-change-email, #div-email-verified-wrap
+{
+  display: none ;
+}
+
+#div-change-password
+{
+  display: none ;
+  margin-left: 20px ;
+}
+
+#div-csrf-token
+{
+  display: none ;
+}

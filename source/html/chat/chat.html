@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>chat - mcn site</title>
+    <link rel = "stylesheet" href = "css/chat.css">
+    <script src = "js/chat.js"></script>
+  </head>
+  <body>
+    <div class = "wrap">
+      <div class = "menu-list">
+        <h1 class = "h1-title">聊天室</h1>
+        <button id = "chat-page-button-account-setting" class = "button-selected" onclick = "clicked_account ()">帳號設定</button>
+        <button id = "chat-page-button-public-room" class = "button-not-selected" onclick = "clicked_public_room ()">公開聊天室</button>
+        <br />
+        <br />
+        <button class = "button-back" onclick = "nav_lobby() ;">返回大廳</button>
+      </div>
+      <div id = "main-frame">
+        <div id = "div-account-setting">
+          <button class = "account-setting-edit-button" onclick = "click_edit_setting_button()">變更</button>
+          <button class = "account-setting-save-button" onclick = "click_save_setting_button()" style = "display: none ;">儲存</button>
+          <button class = "account-setting-cancel-button" onclick = "click_cancel_setting_button()" style = "display: none ;">取消</button>
+          <br />
+          <br />
+          <div id = "account-setting-display-data">
+            <div id = "show-nickname"></div>
+          </div>
+
+          <div id = "account-setting-edit-data" style = "display: none ;">
+            暱稱：<input type = "text" id = "edit-nickname"><br />
+          </div>
+
+        </div>
+
+        <div id = "div-public-room" style = "display: none ;">
+          <div id = "public-room-message-display"></div>
+          <div id = "public-room-controller">
+            <textarea id = "public-room-message-editor" rows = "4" cols = "40"></textarea><br />
+            <button class = "public-room-send-message-button" onclick = "post_public_room()">發送訊息</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p id = "result"></p>
+    <div id = "div-csrf-token"></div>
+  </body>
+</html>

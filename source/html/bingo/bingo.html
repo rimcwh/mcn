@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>bingo - mcn site</title>
+    <link rel = "stylesheet" href = "css/bingo.css">
+    <script src = "js/bingo.js"></script>
+    <script src = "js/bingo_rooms_list.js"></script>
+    <script src = "js/bingo_round.js"></script>
+  </head>
+  <body>
+    <div class = "wrap">
+      <div class = "menu-list">
+        <h1 class = "h1-title">賓果</h1>
+        <button id = "button-rooms-list" class = "button-selected" onclick = "clicked_rooms_list()">遊戲配對</button>
+        <button id = "button-history-record-list" class = "button-not-selected" onclick = "clicked_history_record()">歷史賽局</button>
+        <br />
+        <br />
+        <button class = "button-back" onclick = "clicked_back_to_lobby ()">返回大廳</button>
+      </div>
+      <div id = "main-frame">
+        <div id = "div-rooms-list">
+          <div id = "div-room-field-1" class = "rooms-list-single-item">
+            <span id = "span-room-id-1" class = "show-room-id"></span><br />
+            <span id = "span-private-status-1" class = "show-private-status"></span><span id = "span-bingo-size-1" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-1" class = "show-room-status"></span><span id = "span-attendance-1" class = "show-attendance"></span><br />
+          </div>
+          <div id = "div-room-field-2" class = "rooms-list-single-item">
+            <span id = "span-room-id-2" class = "show-room-id"></span><br />
+            <span id = "span-private-status-2" class = "show-private-status"></span><span id = "span-bingo-size-2" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-2" class = "show-room-status"></span><span id = "span-attendance-2" class = "show-attendance"></span><br />
+          </div>
+          <div id = "div-room-field-3" class = "rooms-list-single-item">
+            <span id = "span-room-id-3" class = "show-room-id"></span><br />
+            <span id = "span-private-status-3" class = "show-private-status"></span><span id = "span-bingo-size-3" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-3" class = "show-room-status"></span><span id = "span-attendance-3" class = "show-attendance"></span><br />
+          </div>
+          <div id = "div-room-field-4" class = "rooms-list-single-item">
+            <span id = "span-room-id-4" class = "show-room-id"></span><br />
+            <span id = "span-private-status-4" class = "show-private-status"></span><span id = "span-bingo-size-4" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-4" class = "show-room-status"></span><span id = "span-attendance-4" class = "show-attendance"></span><br />
+          </div>
+          <div id = "div-room-field-5" class = "rooms-list-single-item">
+            <span id = "span-room-id-5" class = "show-room-id"></span><br />
+            <span id = "span-private-status-5" class = "show-private-status"></span><span id = "span-bingo-size-5" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-5" class = "show-room-status"></span><span id = "span-attendance-5" class = "show-attendance"></span><br />
+          </div>
+          <div id = "div-room-field-6" class = "rooms-list-single-item">
+            <span id = "span-room-id-6" class = "show-room-id"></span><br />
+            <span id = "span-private-status-6" class = "show-private-status"></span><span id = "span-bingo-size-6" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-6" class = "show-room-status"></span><span id = "span-attendance-6" class = "show-attendance"></span><br />
+          </div>
+          <div id = "div-room-field-7" class = "rooms-list-single-item">
+            <span id = "span-room-id-7" class = "show-room-id"></span><br />
+            <span id = "span-private-status-7" class = "show-private-status"></span><span id = "span-bingo-size-7" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-7" class = "show-room-status"></span><span id = "span-attendance-7" class = "show-attendance"></span><br />
+          </div>
+          <div id = "div-room-field-8" class = "rooms-list-single-item">
+            <span id = "span-room-id-8" class = "show-room-id"></span><br />
+            <span id = "span-private-status-8" class = "show-private-status"></span><span id = "span-bingo-size-8" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-8" class = "show-room-status"></span><span id = "span-attendance-8" class = "show-attendance"></span><br />
+          </div>
+          <div id = "div-room-field-9" class = "rooms-list-single-item">
+            <span id = "span-room-id-9" class = "show-room-id"></span><br />
+            <span id = "span-private-status-9" class = "show-private-status"></span><span id = "span-bingo-size-9" class = "show-bingo-size"></span><br />
+            <span id = "span-room-status-9" class = "show-room-status"></span><span id = "span-attendance-9" class = "show-attendance"></span><br />
+          </div>
+          <div class = "rooms-list-button-wrap">
+            <button id = "button-create-room" onclick = "clicked_create_room()">建立房間</button>
+            <button id = "button-join-room" onclick = "clicked_quickly_join_room()">快速加入</button>
+          </div>
+          <div class = "rooms-list-page-wrap">
+            <button id = "button-first-page" onclick = "clicked_first_page()">最前頁</button>
+            <button id = "button-previous-page" onclick = "clicked_previous_page()">上一頁</button>
+            <span id = "span-current-page" class = "show-current-page"></span>
+            <button id = "button-next-page" onclick = "clicked_next_page()">下一頁</button>
+            <button id = "button-last-page" onclick = "clicked_last_page()">最後頁</button>
+          </div>
+          <div id = "div-rooms-list-status-info-overlay">
+            <div id = "div-rooms-list-status-info-poparea">
+              <div id = "div-rooms-list-status-info-poparea-text">請輸入房間密碼</div>
+              <div class = "div-input-room-password-wrap"><input type = "text" id = "input-room-password"></div>
+              <div class = "div-button-room-password-confirm-wrap">
+                <button id = "button-room-confirm-password-no" onclick = "clicked_button_room_confirm_password_cancel()">取消</button>
+                <button id = "button-room-confirm-password-yes">確定</button>
+              </div>
+            </div>
+          </div>
+          <div id = "div-room-detail-overlay">
+            <div id = "div-room-detail-poparea">
+              <div id = "div-room-detail-room-number"></div>
+              <div id = "div-room-detail-players-wrap">
+                <div id = "div-room-detail-player1-info">
+                  <div id = "div-room-detail-player1-info-leader-flag">　</div>
+                  <div class = "div-room-detail-player-label">玩家 A</div>
+                  <div id = "div-room-detail-player1-info-id">　</div>
+                  <div id = "div-room-detail-player1-info-status">　</div>
+                </div>
+                <div id = "div-room-detail-player2-info">
+                  <div id = "div-room-detail-player2-info-leader-flag">　</div>
+                  <div class = "div-room-detail-player-label">玩家 B</div>
+                  <div id = "div-room-detail-player2-info-id">　</div>
+                  <div id = "div-room-detail-player2-info-status">　</div>
+                </div>
+                <div id = "div-room-detail-player3-info">
+                  <div id = "div-room-detail-player3-info-leader-flag">　</div>
+                  <div class = "div-room-detail-player-label">玩家 C</div>
+                  <div id = "div-room-detail-player3-info-id">　</div>
+                  <div id = "div-room-detail-player3-info-status">　</div>
+                </div>
+                <div id = "div-room-detail-player4-info">
+                  <div id = "div-room-detail-player4-info-leader-flag">　</div>
+                  <div class = "div-room-detail-player-label">玩家 D</div>
+                  <div id = "div-room-detail-player4-info-id">　</div>
+                  <div id = "div-room-detail-player4-info-status">　</div>
+                </div>
+              </div>
+              <div class = "div-room-detail-attribute-A">
+                <div class = "div-room-detail-privacy-area">
+                  <div id = "div-room-detail-privacy-option">
+                    <div class = "div-room-detail-input-radio-privacy-container">
+                      <label class = "label-radio-container">公開房間
+                        <input type = "radio" id = "radio-privacy-public" name = "radio-privacy" onclick = "clicked_radio_privacy_public()">
+                        <span class = "radio-checkmark"></span>
+                      </label>
+                      <label class = "label-radio-container">私人房間
+                        <input type = "radio" id = "radio-privacy-private" name = "radio-privacy" onclick = "clicked_radio_privacy_private()">
+                        <span class = "radio-checkmark"></span>
+                      </label>
+                    </div>
+                    <div class = "div-room-detail-password-area-reserved">
+                      <div id = "div-room-detail-password-area-container">
+                        密碼：<input type = "password" id = "input-room-detail-password">
+                        <button id = "button-room-detail-change-password" onclick = "clicked_change_password() ;">設定密碼</button><br />
+                        <div id = "div-change-password-result"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id = "div-room-detail-privacy-text"></div>
+                </div>
+                <div class = "div-room-detail-bingo-size-area">
+                  <div id = "div-room-detail-bingo-size-option">
+                    <div class = "div-room-detail-input-radio-bingo-size-container">
+                      <label class = "label-radio-container"> 5 x 5
+                        <input type = "radio" id = "radio-bingo-size-5" name = "radio-bingo-size" onclick = "clicked_radio_bingo_size(5)">
+                        <span class = "radio-checkmark"></span>
+                      </label>
+                      <label class = "label-radio-container"> 6 x 6
+                        <input type = "radio" id = "radio-bingo-size-6" name = "radio-bingo-size" onclick = "clicked_radio_bingo_size(6)">
+                        <span class = "radio-checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div id = "div-room-detail-bingo-size-text"></div>
+                </div>
+                <div class = "div-room-detail-attendance-area">
+                  <div id = "div-room-detail-attendance-text"></div>
+                  <div id = "div-room-detail-max-attendance-option">
+                    <div class = "div-room-detail-input-radio-max-attendance-container">
+                      <label class = "label-radio-container"><span id = "span-radio-label-max-attendance-2">上限 2 人</span>
+                        <input type = "radio" id = "radio-max-attendance-2" name = "radio-max-attendance" onclick = "clicked_radio_max_attendance(2)">
+                        <span class = "radio-checkmark"></span>
+                      </label>
+                      <label class = "label-radio-container"><span id = "span-radio-label-max-attendance-3">上限 3 人</span>
+                        <input type = "radio" id = "radio-max-attendance-3" name = "radio-max-attendance" onclick = "clicked_radio_max_attendance(3)">
+                        <span class = "radio-checkmark"></span>
+                      </label>
+                      <label class = "label-radio-container">上限 4 人
+                        <input type = "radio" id = "radio-max-attendance-4" name = "radio-max-attendance" onclick = "clicked_radio_max_attendance(4)">
+                        <span class = "radio-checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <br />
+              <div class = "button-wrap">
+                <button id = "button-room-detail-leave-room" onclick = "clicked_leave_room()">離開房間</button>
+                <button id = "button-room-detail-get-ready" onclick = "clicked_get_ready()">準備好了</button>
+                <button id = "button-room-detail-not-ready" onclick = "clicked_not_ready()">取消準備</button>
+                <!--<button id = "button-room-detail-start-now" onclick = "clicked_start_now()">直接開局</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id = "div-game-ongoing-overlay">
+          <div id = "div-game-ongoing-determine-grid">
+            <div class = "div-game-ongoing-determine-grid-title">決定盤面</div>
+            <div id = "div-game-ongoing-determine-grid-players-wrap">
+              <div id = "div-game-ongoing-determine-grid-player1-info">
+                <div id = "div-game-ongoing-determine-grid-player1-info-self-flag">　</div>
+                <div class = "div-game-ongoing-determine-grid-player-label">玩家 A</div>
+                <div id = "div-game-ongoing-determine-grid-player1-info-id">　</div>
+                <div id = "div-game-ongoing-determine-grid-player1-info-status">　</div>
+              </div>
+              <div id = "div-game-ongoing-determine-grid-player2-info">
+                <div id = "div-game-ongoing-determine-grid-player2-info-self-flag">　</div>
+                <div class = "div-game-ongoing-determine-grid-player-label">玩家 B</div>
+                <div id = "div-game-ongoing-determine-grid-player2-info-id">　</div>
+                <div id = "div-game-ongoing-determine-grid-player2-info-status">　</div>
+              </div>
+              <div id = "div-game-ongoing-determine-grid-player3-info">
+                <div id = "div-game-ongoing-determine-grid-player3-info-self-flag">　</div>
+                <div class = "div-game-ongoing-determine-grid-player-label">玩家 C</div>
+                <div id = "div-game-ongoing-determine-grid-player3-info-id">　</div>
+                <div id = "div-game-ongoing-determine-grid-player3-info-status">　</div>
+              </div>
+              <div id = "div-game-ongoing-determine-grid-player4-info">
+                <div id = "div-game-ongoing-determine-grid-player4-info-self-flag">　</div>
+                <div class = "div-game-ongoing-determine-grid-player-label">玩家 D</div>
+                <div id = "div-game-ongoing-determine-grid-player4-info-id">　</div>
+                <div id = "div-game-ongoing-determine-grid-player4-info-status">　</div>
+              </div>
+            </div>
+            <div class = "div-game-ongoing-determine-grid-info-panel">
+              <button id = "button-round-ongoing-determine-grid-random-grid" onclick = "clicked_random_grid_all()">隨機產生盤面</button><br />
+              <br />
+              <button id = "button-round-ongoing-determine-grid-reset-number" onclick = "clicked_reset_single_number()">重置一個號碼</button><br />
+              <br />
+              <div id = "div-game-ongoing-determine-grid-text-A"></div>
+              <br />
+              <button id = "button-round-ongoing-determine-gird-send-grid" onclick = "clicked_send_grid()">送出盤面</button><br />
+              <br />
+              <div id = "div-game-ongoing-determine-grid-text-B"></div>
+            </div>
+            <div id = "div-game-ongoing-determine-grid-size-5-wrap">
+              <table class = "table-game-ongoing-determine-grid">
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-0" onclick = "clicked_determine_grid_size_5_cell(0)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-1" onclick = "clicked_determine_grid_size_5_cell(1)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-2" onclick = "clicked_determine_grid_size_5_cell(2)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-3" onclick = "clicked_determine_grid_size_5_cell(3)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-4" onclick = "clicked_determine_grid_size_5_cell(4)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-5" onclick = "clicked_determine_grid_size_5_cell(5)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-6" onclick = "clicked_determine_grid_size_5_cell(6)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-7" onclick = "clicked_determine_grid_size_5_cell(7)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-8" onclick = "clicked_determine_grid_size_5_cell(8)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-9" onclick = "clicked_determine_grid_size_5_cell(9)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-10" onclick = "clicked_determine_grid_size_5_cell(10)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-11" onclick = "clicked_determine_grid_size_5_cell(11)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-12" onclick = "clicked_determine_grid_size_5_cell(12)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-13" onclick = "clicked_determine_grid_size_5_cell(13)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-14" onclick = "clicked_determine_grid_size_5_cell(14)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-15" onclick = "clicked_determine_grid_size_5_cell(15)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-16" onclick = "clicked_determine_grid_size_5_cell(16)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-17" onclick = "clicked_determine_grid_size_5_cell(17)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-18" onclick = "clicked_determine_grid_size_5_cell(18)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-19" onclick = "clicked_determine_grid_size_5_cell(19)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-20" onclick = "clicked_determine_grid_size_5_cell(20)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-21" onclick = "clicked_determine_grid_size_5_cell(21)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-22" onclick = "clicked_determine_grid_size_5_cell(22)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-23" onclick = "clicked_determine_grid_size_5_cell(23)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-5-cell-24" onclick = "clicked_determine_grid_size_5_cell(24)"></td>
+                </tr>
+              </table>
+            </div>
+            <div id = "div-game-ongoing-determine-grid-size-6-wrap">
+              <table class = "table-game-ongoing-determine-grid">
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-0" onclick = "clicked_determine_grid_size_6_cell(0)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-1" onclick = "clicked_determine_grid_size_6_cell(1)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-2" onclick = "clicked_determine_grid_size_6_cell(2)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-3" onclick = "clicked_determine_grid_size_6_cell(3)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-4" onclick = "clicked_determine_grid_size_6_cell(4)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-5" onclick = "clicked_determine_grid_size_6_cell(5)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-6" onclick = "clicked_determine_grid_size_6_cell(6)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-7" onclick = "clicked_determine_grid_size_6_cell(7)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-8" onclick = "clicked_determine_grid_size_6_cell(8)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-9" onclick = "clicked_determine_grid_size_6_cell(9)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-10" onclick = "clicked_determine_grid_size_6_cell(10)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-11" onclick = "clicked_determine_grid_size_6_cell(11)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-12" onclick = "clicked_determine_grid_size_6_cell(12)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-13" onclick = "clicked_determine_grid_size_6_cell(13)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-14" onclick = "clicked_determine_grid_size_6_cell(14)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-15" onclick = "clicked_determine_grid_size_6_cell(15)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-16" onclick = "clicked_determine_grid_size_6_cell(16)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-17" onclick = "clicked_determine_grid_size_6_cell(17)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-18" onclick = "clicked_determine_grid_size_6_cell(18)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-19" onclick = "clicked_determine_grid_size_6_cell(19)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-20" onclick = "clicked_determine_grid_size_6_cell(20)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-21" onclick = "clicked_determine_grid_size_6_cell(21)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-22" onclick = "clicked_determine_grid_size_6_cell(22)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-23" onclick = "clicked_determine_grid_size_6_cell(23)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-24" onclick = "clicked_determine_grid_size_6_cell(24)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-25" onclick = "clicked_determine_grid_size_6_cell(25)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-26" onclick = "clicked_determine_grid_size_6_cell(26)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-27" onclick = "clicked_determine_grid_size_6_cell(27)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-28" onclick = "clicked_determine_grid_size_6_cell(28)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-29" onclick = "clicked_determine_grid_size_6_cell(29)"></td>
+                </tr>
+                <tr>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-30" onclick = "clicked_determine_grid_size_6_cell(30)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-31" onclick = "clicked_determine_grid_size_6_cell(31)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-32" onclick = "clicked_determine_grid_size_6_cell(32)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-33" onclick = "clicked_determine_grid_size_6_cell(33)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-34" onclick = "clicked_determine_grid_size_6_cell(34)"></td>
+                  <td id = "td-game-ongoing-determine-grid-size-6-cell-35" onclick = "clicked_determine_grid_size_6_cell(35)"></td>
+                </tr>
+              </table>
+            </div>
+            <div id = "div-game-ongoing-determine-grid-test-area"></div>
+          </div>
+          <div id = "div-game-ongoing-main">
+            <div id = "div-game-ongoing-main-title">遊戲進行中</div>
+            <div class = "div-game-ongoing-info-panel">
+              <div id = "div-game-ongoing-text-A"></div>
+              <br />
+              <div id = "div-game-ongoing-text-B">　</div>
+              <br />
+              <button id = "button-round-ongoing-main-send-circled-number" onclick = "clicked_send_circled_number()">送出</button>
+              <button id = "button-round-ongoing-main-back-to-room" onclick = "clicked_back_to_room()">離開</button>
+              <button id = "button-round-ongoing-main-checking" onclick = "clicked_checking()">查看遊戲過程</button>
+            </div>
+            <div id = "div-game-ongoing-grid-size-5-wrap">
+              <div class = "div-game-ongoing-grid-wrap">
+                <span id = "span-grid-size-5-line-row-0"></span>
+                <span id = "span-grid-size-5-line-row-1"></span>
+                <span id = "span-grid-size-5-line-row-2"></span>
+                <span id = "span-grid-size-5-line-row-3"></span>
+                <span id = "span-grid-size-5-line-row-4"></span>
+                <span id = "span-grid-size-5-line-col-0"></span>
+                <span id = "span-grid-size-5-line-col-1"></span>
+                <span id = "span-grid-size-5-line-col-2"></span>
+                <span id = "span-grid-size-5-line-col-3"></span>
+                <span id = "span-grid-size-5-line-col-4"></span>
+                <span id = "span-grid-size-5-line-cross-a"></span>
+                <span id = "span-grid-size-5-line-cross-b"></span>
+                <table class = "table-game-ongoing-grid">
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-5-cell-0" onclick = "clicked_grid_size_5_cell(0)"><span id = "span-text-game-ongoing-grid-size-5-cell-0"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-0" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-1" onclick = "clicked_grid_size_5_cell(1)"><span id = "span-text-game-ongoing-grid-size-5-cell-1"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-1" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-2" onclick = "clicked_grid_size_5_cell(2)"><span id = "span-text-game-ongoing-grid-size-5-cell-2"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-2" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-3" onclick = "clicked_grid_size_5_cell(3)"><span id = "span-text-game-ongoing-grid-size-5-cell-3"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-3" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-4" onclick = "clicked_grid_size_5_cell(4)"><span id = "span-text-game-ongoing-grid-size-5-cell-4"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-4" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-5-cell-5" onclick = "clicked_grid_size_5_cell(5)"><span id = "span-text-game-ongoing-grid-size-5-cell-5"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-5" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-6" onclick = "clicked_grid_size_5_cell(6)"><span id = "span-text-game-ongoing-grid-size-5-cell-6"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-6" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-7" onclick = "clicked_grid_size_5_cell(7)"><span id = "span-text-game-ongoing-grid-size-5-cell-7"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-7" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-8" onclick = "clicked_grid_size_5_cell(8)"><span id = "span-text-game-ongoing-grid-size-5-cell-8"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-8" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-9" onclick = "clicked_grid_size_5_cell(9)"><span id = "span-text-game-ongoing-grid-size-5-cell-9"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-9" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-5-cell-10" onclick = "clicked_grid_size_5_cell(10)"><span id = "span-text-game-ongoing-grid-size-5-cell-10"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-10" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-11" onclick = "clicked_grid_size_5_cell(11)"><span id = "span-text-game-ongoing-grid-size-5-cell-11"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-11" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-12" onclick = "clicked_grid_size_5_cell(12)"><span id = "span-text-game-ongoing-grid-size-5-cell-12"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-12" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-13" onclick = "clicked_grid_size_5_cell(13)"><span id = "span-text-game-ongoing-grid-size-5-cell-13"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-13" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-14" onclick = "clicked_grid_size_5_cell(14)"><span id = "span-text-game-ongoing-grid-size-5-cell-14"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-14" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-5-cell-15" onclick = "clicked_grid_size_5_cell(15)"><span id = "span-text-game-ongoing-grid-size-5-cell-15"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-15" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-16" onclick = "clicked_grid_size_5_cell(16)"><span id = "span-text-game-ongoing-grid-size-5-cell-16"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-16" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-17" onclick = "clicked_grid_size_5_cell(17)"><span id = "span-text-game-ongoing-grid-size-5-cell-17"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-17" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-18" onclick = "clicked_grid_size_5_cell(18)"><span id = "span-text-game-ongoing-grid-size-5-cell-18"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-18" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-19" onclick = "clicked_grid_size_5_cell(19)"><span id = "span-text-game-ongoing-grid-size-5-cell-19"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-19" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-5-cell-20" onclick = "clicked_grid_size_5_cell(20)"><span id = "span-text-game-ongoing-grid-size-5-cell-20"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-20" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-21" onclick = "clicked_grid_size_5_cell(21)"><span id = "span-text-game-ongoing-grid-size-5-cell-21"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-21" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-22" onclick = "clicked_grid_size_5_cell(22)"><span id = "span-text-game-ongoing-grid-size-5-cell-22"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-22" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-23" onclick = "clicked_grid_size_5_cell(23)"><span id = "span-text-game-ongoing-grid-size-5-cell-23"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-23" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-5-cell-24" onclick = "clicked_grid_size_5_cell(24)"><span id = "span-text-game-ongoing-grid-size-5-cell-24"></span><span id = "span-decorated-game-ongoing-grid-size-5-cell-24" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id = "div-game-ongoing-grid-size-6-wrap">
+              <div class = "div-game-ongoing-grid-wrap">
+                <span id = "span-grid-size-6-line-row-0"></span>
+                <span id = "span-grid-size-6-line-row-1"></span>
+                <span id = "span-grid-size-6-line-row-2"></span>
+                <span id = "span-grid-size-6-line-row-3"></span>
+                <span id = "span-grid-size-6-line-row-4"></span>
+                <span id = "span-grid-size-6-line-row-5"></span>
+                <span id = "span-grid-size-6-line-col-0"></span>
+                <span id = "span-grid-size-6-line-col-1"></span>
+                <span id = "span-grid-size-6-line-col-2"></span>
+                <span id = "span-grid-size-6-line-col-3"></span>
+                <span id = "span-grid-size-6-line-col-4"></span>
+                <span id = "span-grid-size-6-line-col-5"></span>
+                <span id = "span-grid-size-6-line-cross-a"></span>
+                <span id = "span-grid-size-6-line-cross-b"></span>
+                <table class = "table-game-ongoing-grid">
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-6-cell-0" onclick = "clicked_grid_size_6_cell(0)"><span id = "span-text-game-ongoing-grid-size-6-cell-0"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-0" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-1" onclick = "clicked_grid_size_6_cell(1)"><span id = "span-text-game-ongoing-grid-size-6-cell-1"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-1" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-2" onclick = "clicked_grid_size_6_cell(2)"><span id = "span-text-game-ongoing-grid-size-6-cell-2"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-2" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-3" onclick = "clicked_grid_size_6_cell(3)"><span id = "span-text-game-ongoing-grid-size-6-cell-3"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-3" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-4" onclick = "clicked_grid_size_6_cell(4)"><span id = "span-text-game-ongoing-grid-size-6-cell-4"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-4" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-5" onclick = "clicked_grid_size_6_cell(5)"><span id = "span-text-game-ongoing-grid-size-6-cell-5"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-5" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-6-cell-6" onclick = "clicked_grid_size_6_cell(6)"><span id = "span-text-game-ongoing-grid-size-6-cell-6"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-6" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-7" onclick = "clicked_grid_size_6_cell(7)"><span id = "span-text-game-ongoing-grid-size-6-cell-7"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-7" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-8" onclick = "clicked_grid_size_6_cell(8)"><span id = "span-text-game-ongoing-grid-size-6-cell-8"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-8" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-9" onclick = "clicked_grid_size_6_cell(9)"><span id = "span-text-game-ongoing-grid-size-6-cell-9"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-9" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-10" onclick = "clicked_grid_size_6_cell(10)"><span id = "span-text-game-ongoing-grid-size-6-cell-10"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-10" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-11" onclick = "clicked_grid_size_6_cell(11)"><span id = "span-text-game-ongoing-grid-size-6-cell-11"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-11" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-6-cell-12" onclick = "clicked_grid_size_6_cell(12)"><span id = "span-text-game-ongoing-grid-size-6-cell-12"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-12" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-13" onclick = "clicked_grid_size_6_cell(13)"><span id = "span-text-game-ongoing-grid-size-6-cell-13"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-13" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-14" onclick = "clicked_grid_size_6_cell(14)"><span id = "span-text-game-ongoing-grid-size-6-cell-14"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-14" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-15" onclick = "clicked_grid_size_6_cell(15)"><span id = "span-text-game-ongoing-grid-size-6-cell-15"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-15" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-16" onclick = "clicked_grid_size_6_cell(16)"><span id = "span-text-game-ongoing-grid-size-6-cell-16"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-16" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-17" onclick = "clicked_grid_size_6_cell(17)"><span id = "span-text-game-ongoing-grid-size-6-cell-17"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-17" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-6-cell-18" onclick = "clicked_grid_size_6_cell(18)"><span id = "span-text-game-ongoing-grid-size-6-cell-18"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-18" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-19" onclick = "clicked_grid_size_6_cell(19)"><span id = "span-text-game-ongoing-grid-size-6-cell-19"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-19" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-20" onclick = "clicked_grid_size_6_cell(20)"><span id = "span-text-game-ongoing-grid-size-6-cell-20"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-20" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-21" onclick = "clicked_grid_size_6_cell(21)"><span id = "span-text-game-ongoing-grid-size-6-cell-21"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-21" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-22" onclick = "clicked_grid_size_6_cell(22)"><span id = "span-text-game-ongoing-grid-size-6-cell-22"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-22" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-23" onclick = "clicked_grid_size_6_cell(23)"><span id = "span-text-game-ongoing-grid-size-6-cell-23"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-23" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-6-cell-24" onclick = "clicked_grid_size_6_cell(24)"><span id = "span-text-game-ongoing-grid-size-6-cell-24"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-24" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-25" onclick = "clicked_grid_size_6_cell(25)"><span id = "span-text-game-ongoing-grid-size-6-cell-25"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-25" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-26" onclick = "clicked_grid_size_6_cell(26)"><span id = "span-text-game-ongoing-grid-size-6-cell-26"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-26" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-27" onclick = "clicked_grid_size_6_cell(27)"><span id = "span-text-game-ongoing-grid-size-6-cell-27"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-27" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-28" onclick = "clicked_grid_size_6_cell(28)"><span id = "span-text-game-ongoing-grid-size-6-cell-28"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-28" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-29" onclick = "clicked_grid_size_6_cell(29)"><span id = "span-text-game-ongoing-grid-size-6-cell-29"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-29" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td id = "td-game-ongoing-grid-size-6-cell-30" onclick = "clicked_grid_size_6_cell(30)"><span id = "span-text-game-ongoing-grid-size-6-cell-30"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-30" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-31" onclick = "clicked_grid_size_6_cell(31)"><span id = "span-text-game-ongoing-grid-size-6-cell-31"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-31" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-32" onclick = "clicked_grid_size_6_cell(32)"><span id = "span-text-game-ongoing-grid-size-6-cell-32"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-32" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-33" onclick = "clicked_grid_size_6_cell(33)"><span id = "span-text-game-ongoing-grid-size-6-cell-33"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-33" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-34" onclick = "clicked_grid_size_6_cell(34)"><span id = "span-text-game-ongoing-grid-size-6-cell-34"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-34" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                    <td id = "td-game-ongoing-grid-size-6-cell-35" onclick = "clicked_grid_size_6_cell(35)"><span id = "span-text-game-ongoing-grid-size-6-cell-35"></span><span id = "span-decorated-game-ongoing-grid-size-6-cell-35" class = "span-decorated-game-ongoing-grid-cell"></span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+
+
+            <div id = "div-game-ongoing-main-players-wrap">
+              <div id = "div-game-ongoing-main-player1-info">
+                <div id = "div-game-ongoing-main-player1-info-self-flag">　</div>
+                <div class = "div-game-ongoing-main-player-label">玩家 A</div>
+                <div id = "div-game-ongoing-main-player1-info-id">　</div>
+                <div id = "div-game-ongoing-main-player1-info-status">　</div>
+              </div>
+              <div id = "div-game-ongoing-main-player2-info">
+                <div id = "div-game-ongoing-main-player2-info-self-flag">　</div>
+                <div class = "div-game-ongoing-main-player-label">玩家 B</div>
+                <div id = "div-game-ongoing-main-player2-info-id">　</div>
+                <div id = "div-game-ongoing-main-player2-info-status">　</div>
+              </div>
+              <div id = "div-game-ongoing-main-player3-info">
+                <div id = "div-game-ongoing-main-player3-info-self-flag">　</div>
+                <div class = "div-game-ongoing-main-player-label">玩家 C</div>
+                <div id = "div-game-ongoing-main-player3-info-id">　</div>
+                <div id = "div-game-ongoing-main-player3-info-status">　</div>
+              </div>
+              <div id = "div-game-ongoing-main-player4-info">
+                <div id = "div-game-ongoing-main-player4-info-self-flag">　</div>
+                <div class = "div-game-ongoing-main-player-label">玩家 D</div>
+                <div id = "div-game-ongoing-main-player4-info-id">　</div>
+                <div id = "div-game-ongoing-main-player4-info-status">　</div>
+              </div>
+            </div>
+            <div id = "div-game-ongoing-main-test-area"></div>
+          </div>
+          <div id = "div-game-ongoing-extra-info">
+          </div>
+        </div>
+        <div id = "div-history-record-list">
+          <div id = "div-history-record-list-title">
+            <span class = "span-history-record-list-title-A">詳細</span>
+            <span class = "span-history-record-list-title-B">遊戲ID</span>
+          </div>
+          <ul id = "ul-history-record-list"></ul>
+          <div id = "div-history-record-list-none-data"></div>
+        </div>
+        <div id = "div-game-checking-overlay">
+          <div class = "div-game-checking-info-area-A">
+            操作紀錄<br />
+            <div id = "div-game-checking-record"></div>
+            <div class = "div-game-checking-button-wrap-A">
+              <button id = "button-game-checking-next-step" onclick = "clicked_game_checking_next_step()">下一步</button><br />
+              <br />
+              <button id = "button-game-checking-previous-step" onclick = "clicked_game_checking_previous_step()">上一步</button>
+            </div>
+          </div>
+          <div class = "div-game-checking-info-area-B">
+            <div id = "div-game-checking-counting-linking-line"></div>
+            <div class = "div-game-checking-button-wrap-B">
+              <button id = "button-game-checking-leave" onclick = "clicked_game_checking_leave()">離開</button>
+            </div>
+          </div>
+          <div id = "div-game-checking-self-grid-area">
+            <div id = "div-game-checking-self-grid-title"></div>
+            <div id = "div-game-checking-self-grid-size-5-wrap">
+              <div class = "div-game-checking-grid-wrap">
+                <span class = "span-game-checking-grid-size-5-line-row-0"></span>
+                <span class = "span-game-checking-grid-size-5-line-row-1"></span>
+                <span class = "span-game-checking-grid-size-5-line-row-2"></span>
+                <span class = "span-game-checking-grid-size-5-line-row-3"></span>
+                <span class = "span-game-checking-grid-size-5-line-row-4"></span>
+                <span class = "span-game-checking-grid-size-5-line-col-0"></span>
+                <span class = "span-game-checking-grid-size-5-line-col-1"></span>
+                <span class = "span-game-checking-grid-size-5-line-col-2"></span>
+                <span class = "span-game-checking-grid-size-5-line-col-3"></span>
+                <span class = "span-game-checking-grid-size-5-line-col-4"></span>
+                <span class = "span-game-checking-grid-size-5-line-cross-a"></span>
+                <span class = "span-game-checking-grid-size-5-line-cross-b"></span>
+                <table class = "table-game-checking-grid">
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id = "div-game-checking-self-grid-size-6-wrap">
+              <div class = "div-game-checking-grid-wrap">
+                <span class = "span-game-checking-grid-size-6-line-row-0"></span>
+                <span class = "span-game-checking-grid-size-6-line-row-1"></span>
+                <span class = "span-game-checking-grid-size-6-line-row-2"></span>
+                <span class = "span-game-checking-grid-size-6-line-row-3"></span>
+                <span class = "span-game-checking-grid-size-6-line-row-4"></span>
+                <span class = "span-game-checking-grid-size-6-line-row-5"></span>
+                <span class = "span-game-checking-grid-size-6-line-col-0"></span>
+                <span class = "span-game-checking-grid-size-6-line-col-1"></span>
+                <span class = "span-game-checking-grid-size-6-line-col-2"></span>
+                <span class = "span-game-checking-grid-size-6-line-col-3"></span>
+                <span class = "span-game-checking-grid-size-6-line-col-4"></span>
+                <span class = "span-game-checking-grid-size-6-line-col-5"></span>
+                <span class = "span-game-checking-grid-size-6-line-cross-a"></span>
+                <span class = "span-game-checking-grid-size-6-line-cross-b"></span>
+                <table class = "table-game-checking-grid">
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div id = "div-game-checking-other-grid-area">
+            <div class = "div-game-checking-single-other-grid-wrap">
+              <div id = "div-game-checking-other-player-A-grid-size-5-wrap">
+                <div class = "div-game-checking-grid-wrap">
+                  <span class = "span-game-checking-grid-size-5-line-row-0"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-1"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-2"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-3"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-4"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-0"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-1"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-2"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-3"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-4"></span>
+                  <span class = "span-game-checking-grid-size-5-line-cross-a"></span>
+                  <span class = "span-game-checking-grid-size-5-line-cross-b"></span>
+                  <table class = "table-game-checking-grid">
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div id = "div-game-checking-other-player-A-grid-size-6-wrap">
+                <div class = "div-game-checking-grid-wrap">
+                  <span class = "span-game-checking-grid-size-6-line-row-0"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-1"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-2"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-3"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-4"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-5"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-0"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-1"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-2"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-3"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-4"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-5"></span>
+                  <span class = "span-game-checking-grid-size-6-line-cross-a"></span>
+                  <span class = "span-game-checking-grid-size-6-line-cross-b"></span>
+                  <table class = "table-game-checking-grid">
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div id = "div-game-checking-other-player-A-grid-title"></div>
+            </div>
+
+            <div class = "div-game-checking-single-other-grid-wrap">
+              <div id = "div-game-checking-other-player-B-grid-size-5-wrap">
+                <div class = "div-game-checking-grid-wrap">
+                  <span class = "span-game-checking-grid-size-5-line-row-0"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-1"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-2"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-3"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-4"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-0"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-1"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-2"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-3"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-4"></span>
+                  <span class = "span-game-checking-grid-size-5-line-cross-a"></span>
+                  <span class = "span-game-checking-grid-size-5-line-cross-b"></span>
+                  <table class = "table-game-checking-grid">
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div id = "div-game-checking-other-player-B-grid-size-6-wrap">
+                <div class = "div-game-checking-grid-wrap">
+                  <span class = "span-game-checking-grid-size-6-line-row-0"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-1"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-2"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-3"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-4"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-5"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-0"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-1"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-2"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-3"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-4"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-5"></span>
+                  <span class = "span-game-checking-grid-size-6-line-cross-a"></span>
+                  <span class = "span-game-checking-grid-size-6-line-cross-b"></span>
+                  <table class = "table-game-checking-grid">
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div id = "div-game-checking-other-player-B-grid-title"></div>
+            </div>
+
+            <div class = "div-game-checking-single-other-grid-wrap">
+              <div id = "div-game-checking-other-player-C-grid-size-5-wrap">
+                <div class = "div-game-checking-grid-wrap">
+                  <span class = "span-game-checking-grid-size-5-line-row-0"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-1"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-2"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-3"></span>
+                  <span class = "span-game-checking-grid-size-5-line-row-4"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-0"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-1"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-2"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-3"></span>
+                  <span class = "span-game-checking-grid-size-5-line-col-4"></span>
+                  <span class = "span-game-checking-grid-size-5-line-cross-a"></span>
+                  <span class = "span-game-checking-grid-size-5-line-cross-b"></span>
+                  <table class = "table-game-checking-grid">
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div id = "div-game-checking-other-player-C-grid-size-6-wrap">
+                <div class = "div-game-checking-grid-wrap">
+                  <span class = "span-game-checking-grid-size-6-line-row-0"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-1"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-2"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-3"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-4"></span>
+                  <span class = "span-game-checking-grid-size-6-line-row-5"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-0"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-1"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-2"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-3"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-4"></span>
+                  <span class = "span-game-checking-grid-size-6-line-col-5"></span>
+                  <span class = "span-game-checking-grid-size-6-line-cross-a"></span>
+                  <span class = "span-game-checking-grid-size-6-line-cross-b"></span>
+                  <table class = "table-game-checking-grid">
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                    <tr>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                      <td><span></span><span class = "span-decorated-game-checking-grid-cell"></span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div id = "div-game-checking-other-player-C-grid-title"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p id = "result"></p>
+    <div id = "div-csrf-token"></div>
+  </body>
+</html>
