@@ -53,5 +53,11 @@ PHP 實作聊天室、購物車、線上 bingo 連線遊戲<br>
 
 之後就能在 PHP 程式碼上，指定使用「微軟正黑體」印在 PDF 檔。
 
+## 資訊安全相關
+支援 HTTPS<br>
+使用 JWT 認證使用者身分<br>
+
+防禦 SQL injection、XSS、CSRF、圖片上傳攻擊<br>
+
 ## License
 [MIT License](./License)
